@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EMT Advanced Case Trainer — Level III</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;600;700;800&display=swap');
+:root {
+  --bg:#080a0e;--surface:#0d1117;--surface2:#131920;--border:#1c2535;--border2:#243040;
+  --red:#e8392a;--red-dim:rgba(232,57,42,0.12);--amber:#f59e0b;--amber-dim:rgba(245,158,11,0.1);
+  --green:#10b981;--green-dim:rgba(16,185,129,0.1);--blue:#3b82f6;--blue-dim:rgba(59,130,246,0.08);
+  --purple:#a78bfa;--purple-dim:rgba(167,139,250,0.1);
+  --text:#94a3b8;--text-bright:#e2e8f0;--dim:#334155;--dim2:#475569;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;min-height:100vh;padding:22px 18px 60px;max-width:800px;margin:0 auto;position:relative;}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(59,130,246,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,0.025) 1px,transparent 1px);background-size:44px 44px;pointer-events:none;z-index:0;}
+#app{position:relative;z-index:1;}
+header{display:flex;align-items:center;gap:14px;margin-bottom:28px;padding-bottom:18px;border-bottom:1px solid var(--border);}
+.logo{width:34px;height:34px;flex-shrink:0;background:var(--red);clip-path:polygon(35% 0%,65% 0%,65% 35%,100% 35%,100% 65%,65% 65%,65% 100%,35% 100%,35% 65%,0% 65%,0% 35%,35% 35%);animation:hb 2.4s ease-in-out infinite;}
+@keyframes hb{0%,100%{transform:scale(1)}50%{transform:scale(0.9)}}
+.header-text h1{font-weight:800;font-size:1.1rem;color:var(--text-bright);}
+.header-text p{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--dim2);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
+/* HOME */
+.home-hero{text-align:center;padding:16px 0 28px;}
+.home-hero h2{font-size:1.9rem;font-weight:800;color:var(--text-bright);margin-bottom:10px;line-height:1.2;}
+.home-hero h2 span{color:var(--red);}
+.home-hero p{color:var(--dim2);font-family:'DM Mono',monospace;font-size:0.78rem;letter-spacing:0.5px;line-height:1.75;max-width:460px;margin:0 auto 26px;}
+.btn-primary{background:var(--red);border:none;color:#fff;padding:12px 30px;border-radius:6px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.88rem;letter-spacing:0.5px;cursor:pointer;transition:all 0.2s;}
+.btn-primary:hover{background:#c42d20;transform:translateY(-1px);}
+.btn-ghost{background:transparent;border:1px solid var(--border2);color:var(--dim2);padding:12px 22px;border-radius:6px;font-family:'Syne',sans-serif;font-weight:600;font-size:0.83rem;cursor:pointer;transition:all 0.2s;}
+.btn-ghost:hover{border-color:var(--text);color:var(--text-bright);}
+.case-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:9px;margin-top:24px;}
+.case-tile{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:15px;cursor:pointer;transition:all 0.2s;position:relative;overflow:hidden;}
+.case-tile::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform 0.25s;}
+.case-tile:hover{border-color:var(--border2);background:var(--surface2);}
+.case-tile:hover::before{transform:scaleX(1);}
+.ct-num{font-family:'DM Mono',monospace;font-size:0.58rem;color:var(--dim2);letter-spacing:3px;text-transform:uppercase;margin-bottom:7px;}
+.ct-name{font-weight:700;font-size:0.88rem;color:var(--text-bright);line-height:1.3;margin-bottom:7px;}
+.ct-meta{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--dim2);}
+.ct-badge{display:inline-block;margin-top:7px;background:var(--purple-dim);border:1px solid rgba(167,139,250,0.2);color:var(--purple);font-family:'DM Mono',monospace;font-size:0.52rem;padding:2px 7px;border-radius:3px;letter-spacing:1px;}
+/* CASE */
+.score-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:18px;font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--dim2);}
+.score-val{color:var(--green);font-size:0.92rem;}
+.back-btn{margin-left:auto;background:transparent;border:1px solid var(--border);color:var(--dim2);padding:5px 11px;border-radius:4px;font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:1px;cursor:pointer;transition:all 0.2s;}
+.back-btn:hover{border-color:var(--text);color:var(--text);}
+.dispatch-box{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:6px;padding:15px 17px;margin-bottom:16px;animation:fadeUp 0.4s ease;}
+.db-label{font-family:'DM Mono',monospace;font-size:0.56rem;letter-spacing:3px;color:var(--dim2);text-transform:uppercase;margin-bottom:7px;}
+.dispatch-box p{font-family:'DM Mono',monospace;font-size:0.8rem;color:var(--amber);line-height:1.75;}
+.vitals-row{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px;}
+.vital-chip{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:8px 12px;font-family:'DM Mono',monospace;text-align:center;min-width:74px;flex:1;}
+.vc-lbl{font-size:0.53rem;color:var(--dim2);letter-spacing:2px;text-transform:uppercase;margin-bottom:3px;}
+.vc-val{font-size:0.97rem;font-weight:500;color:var(--text-bright);}
+.vital-chip.v-alert{border-color:rgba(232,57,42,0.35);}
+.vital-chip.v-alert .vc-val{color:var(--red);animation:flash 1.8s infinite;}
+.vital-chip.v-warn .vc-val{color:var(--amber);}
+.vital-chip.v-ok .vc-val{color:var(--green);}
+@keyframes flash{0%,100%{opacity:1}50%{opacity:0.5}}
+.progress-row{display:flex;gap:4px;margin-bottom:18px;}
+.prog-seg{flex:1;height:3px;border-radius:2px;background:var(--border);transition:background 0.4s;}
+.prog-seg.done{background:var(--green);}
+.prog-seg.active{background:var(--amber);}
+.step-meta{display:flex;align-items:center;gap:9px;margin-bottom:11px;}
+.sm-label{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--amber);letter-spacing:2px;text-transform:uppercase;}
+.sm-type{font-family:'DM Mono',monospace;font-size:0.55rem;padding:2px 7px;border-radius:3px;letter-spacing:1px;text-transform:uppercase;}
+.sm-type.mc{background:var(--blue-dim);border:1px solid rgba(59,130,246,0.2);color:var(--blue);}
+.sm-type.fr{background:var(--purple-dim);border:1px solid rgba(167,139,250,0.2);color:var(--purple);}
+.q-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px;margin-bottom:13px;animation:fadeUp 0.35s ease;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.q-card h2{font-size:0.98rem;font-weight:700;color:var(--text-bright);line-height:1.6;margin-bottom:16px;}
+.options-grid{display:grid;gap:8px;}
+.opt-btn{background:transparent;border:1px solid var(--border);color:var(--text);padding:12px 15px;border-radius:6px;cursor:pointer;font-family:'Syne',sans-serif;font-size:0.86rem;text-align:left;transition:all 0.18s;line-height:1.45;}
+.opt-btn:hover:not(:disabled){border-color:var(--blue);color:var(--text-bright);background:var(--blue-dim);}
+.opt-btn.correct{border-color:var(--green);background:var(--green-dim);color:var(--green);}
+.opt-btn.wrong{border-color:var(--red);background:var(--red-dim);color:#f87171;}
+.opt-btn:disabled{cursor:default;}
+.fr-area{width:100%;background:var(--surface2);border:1px solid var(--border2);border-radius:6px;padding:13px 15px;color:var(--text-bright);font-family:'DM Mono',monospace;font-size:0.83rem;line-height:1.7;resize:vertical;min-height:115px;outline:none;transition:border-color 0.2s;}
+.fr-area:focus{border-color:rgba(167,139,250,0.5);}
+.fr-area::placeholder{color:var(--dim2);}
+.fr-hint{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--dim2);margin-top:7px;letter-spacing:0.5px;}
+.submit-fr-btn{margin-top:13px;background:var(--purple-dim);border:1px solid rgba(167,139,250,0.35);color:var(--purple);padding:11px 22px;border-radius:6px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.83rem;cursor:pointer;transition:all 0.2s;}
+.submit-fr-btn:hover:not(:disabled){background:rgba(167,139,250,0.2);}
+.submit-fr-btn:disabled{opacity:0.5;cursor:wait;}
+.feedback-box{margin-top:14px;padding:15px;border-radius:6px;font-size:0.86rem;line-height:1.7;animation:fadeUp 0.3s ease;}
+.fb-correct{background:var(--green-dim);border:1px solid rgba(16,185,129,0.25);color:#6ee7b7;}
+.fb-wrong{background:var(--red-dim);border:1px solid rgba(232,57,42,0.25);color:#fca5a5;}
+.fb-partial{background:var(--amber-dim);border:1px solid rgba(245,158,11,0.25);color:#fcd34d;}
+.fb-loading{background:var(--surface2);border:1px solid var(--border2);color:var(--dim2);}
+.feedback-box strong{display:block;margin-bottom:5px;font-size:0.92rem;color:var(--text-bright);}
+.ai-dot-row{display:flex;align-items:center;gap:7px;font-family:'DM Mono',monospace;font-size:0.72rem;}
+.ai-dot{width:5px;height:5px;border-radius:50%;background:var(--purple);animation:p2 1s infinite;}
+.ai-dot:nth-child(2){animation-delay:.2s}.ai-dot:nth-child(3){animation-delay:.4s}
+@keyframes p2{0%,100%{opacity:.3}50%{opacity:1}}
+.next-btn{margin-top:13px;background:var(--red);border:none;color:#fff;padding:11px 24px;border-radius:6px;font-family:'Syne',sans-serif;font-weight:700;font-size:0.83rem;cursor:pointer;transition:all 0.2s;}
+.next-btn:hover{background:#c42d20;}
+/* END */
+.end-card{text-align:center;padding:28px 14px;animation:fadeUp 0.5s ease;}
+.end-card h2{font-size:1.5rem;font-weight:800;color:var(--text-bright);margin-bottom:7px;}
+.end-score{font-size:3.2rem;font-weight:800;margin:14px 0 5px;}
+.end-grade{font-family:'DM Mono',monospace;font-size:0.78rem;letter-spacing:3px;margin-bottom:18px;}
+.end-card p{color:var(--dim2);font-family:'DM Mono',monospace;font-size:0.75rem;line-height:1.7;margin-bottom:22px;}
+.btn-row{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;}
+.session-bar{margin-top:20px;text-align:center;font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--dim2);}
+@media(max-width:540px){.vitals-row{gap:5px;}.vital-chip{min-width:60px;padding:6px 7px;}.case-grid{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+
+const CASES=[
+// ═══ CASE 1: TENSION PNEUMOTHORAX ═══
+{id:1,name:"Mile Marker 88",
+dispatch:"UNIT 7 — Respond to I-40 eastbound, mile marker 88. Single-vehicle MVA, 45-year-old male driver, restrained, airbags deployed. Significant steering wheel deformity. Patient conscious but in extreme distress. ETA: 6 min.",
+vitals:[{l:"HR",v:"136",s:"v-alert"},{l:"BP",v:"82/58",s:"v-alert"},{l:"SpO₂",v:"78%",s:"v-alert"},{l:"RR",v:"36",s:"v-alert"},{l:"GCS",v:"12",s:"v-warn"}],
+steps:[
+{type:"mc",label:"MOI Assessment",q:"You note significant steering wheel deformity and dashboard intrusion. The patient is clutching his right chest. Which pattern of injuries must you immediately suspect?",
+opts:["Traumatic brain injury only — head hit the airbag","Rib fractures, pneumothorax, hemothorax, pulmonary contusion, aortic injury from blunt anterior chest trauma","Lumbar spine fracture — torso compression against seatbelt","Abdominal organ injury only — steering wheels strike the abdomen"],
+correct:1,
+fb:{c:"Correct. Steering wheel deformity = blunt anterior thoracic force. Your differential must immediately include rib fractures, pneumo/hemothorax, flail chest, pulmonary contusion, and aortic injury. Airbags reduce but do NOT eliminate these injuries. High suspicion drives your entire assessment from this point forward.",
+w:"Incorrect. Steering wheel deformity is a cardinal red flag for blunt thoracic trauma. The differential includes rib fractures, pneumo/hemothorax, flail chest, pulmonary contusion, and aortic injury — ALL of which can be fatal if missed."}},
+{type:"fr",label:"Physical Exam Findings",q:"You auscultate the chest. Breath sounds are ABSENT on the right. Trachea is deviated LEFT. JVD is present. BP is 82/58 and falling. Name the diagnosis, explain the pathophysiology causing each of these three physical findings, and state what will happen if untreated.",
+keyPoints:["tension pneumothorax","air trapping","mediastinal shift","tracheal deviation away from affected side","JVD from impaired venous return","hypotension from compressed heart","absent breath sounds","fatal without needle decompression","obstructive shock"],
+gradingNote:"Full credit requires: correct diagnosis (tension PTX), explanation that trapped air under pressure shifts mediastinum AWAY from affected side (tracheal deviation left = right-sided tension), JVD from superior vena cava compression preventing venous return to heart, hypotension from cardiac compression reducing output. Without decompression = cardiac arrest from obstructive shock."},
+{type:"mc",label:"EMT Scope — Needle Decompression",q:"Tension pneumothorax is confirmed. At the EMT-Basic level in most jurisdictions, needle thoracostomy (decompression) is:",
+opts:["Within EMT-Basic scope — perform immediately at the 2nd ICS midclavicular line","Outside EMT-Basic scope — your role is O₂, rapid transport, and ALS intercept while supporting ABCs","Permitted only if medical direction is physically present on scene","Always performed at the 4th or 5th ICS midaxillary line by any level provider"],
+correct:1,
+fb:{c:"Correct. Needle decompression is an ALS/paramedic skill in most EMS systems. EMT role: recognize the emergency, maximize O₂, support ABCs (BVM if needed), RAPID transport to trauma center, and request ALS intercept immediately. Knowing your scope — and the limits of it — is itself a clinical skill.",
+w:"Incorrect. Needle thoracostomy is outside EMT-Basic scope in most jurisdictions. Your critical role: recognize tension PTX, high-flow O₂, BVM if ventilation fails, urgent ALS intercept, rapid transport to a trauma-capable facility. Acting outside your scope can cause harm even with good intentions."}},
+{type:"mc",label:"Transport Decision",q:"Nearest ED is 4 minutes away (community hospital, no trauma surgery). Level I Trauma Center is 14 minutes. Which do you choose and why?",
+opts:["Community ED — 10 minutes matters more than surgical capability","Level I Trauma Center — this patient needs emergent surgical capability; the 10-minute difference is justified by access to definitive care","Whichever your dispatch recommends, regardless of capabilities","Hover on scene for ALS to arrive before making the transport decision"],
+correct:1,
+fb:{c:"Correct. This is the 'right patient, right hospital' principle. Tension PTX requiring decompression + potential hemothorax + aortic injury cannot be managed at a community ED without trauma surgery. Pre-notify the Level I center, request ALS intercept en route — the extra 10 minutes is worth it for definitive care.",
+w:"Incorrect. 'Nearest' ≠ 'most appropriate.' A patient with suspected tension PTX, hemothorax, and possible aortic injury requires a Level I Trauma Center with thoracic surgical capability. Delivering a critical trauma patient to a facility that cannot provide definitive care wastes time."}}
+]},
+
+// ═══ CASE 2: AORTIC DISSECTION ═══
+{id:2,name:"The Worst Pain of His Life",
+dispatch:"UNIT 7 — Respond to 1102 University Blvd. 68-year-old male, history of hypertension and Marfan syndrome. Wife reports sudden 'tearing' pain in chest and back while sitting at his desk. Onset 30 minutes ago. ETA: 5 min.",
+vitals:[{l:"HR",v:"104",s:"v-warn"},{l:"BP-R",v:"182/108",s:"v-alert"},{l:"BP-L",v:"144/84",s:"v-warn"},{l:"SpO₂",v:"95%",s:"v-ok"},{l:"RR",v:"22",s:"v-warn"}],
+steps:[
+{type:"fr",label:"BP Discrepancy",q:"You take blood pressures in both arms: Right arm = 182/108, Left arm = 144/84. The difference is 38 mmHg systolic. Explain what causes this finding, what diagnosis it suggests, and why the distinction from a regular hypertensive emergency matters for your treatment decisions.",
+keyPoints:["aortic dissection","subclavian artery","flap occlusion","unequal BPs","no aspirin","no nitroglycerin","tearing pain","Marfan","hypertension risk factor","different treatment than AMI"],
+gradingNote:"Full credit: the dissection flap can occlude one subclavian artery reducing flow to that arm. This is a hallmark of aortic dissection. Critical distinction: NO aspirin (worsens hemorrhage into false lumen), NO aggressive nitroglycerin without ALS guidance (hypotension is catastrophic in dissection). Treatment = control BP (labetalol, ALS), pain control, rapid transport to vascular-capable center."},
+{type:"mc",label:"Aspirin Decision",q:"Patient reports 10/10 chest and back pain. Should you administer aspirin 324mg?",
+opts:["Yes — all chest pain gets aspirin per protocol","No — aspirin's antiplatelet effect can worsen hemorrhage into the aortic wall or pericardial space; withhold until dissection is ruled out","Yes, but reduce the dose to 81mg as a compromise","Only if the patient specifically asks for it"],
+correct:1,
+fb:{c:"Correct. This is the single most important drug decision in this scenario. Aspirin in aortic dissection can dramatically worsen bleeding into the false lumen or cause hemopericardium and tamponade. When you cannot differentiate AMI from dissection in the field — and unequal BPs + tearing pain strongly suggest dissection — WITHHOLD aspirin. This is a hard rule to memorize: tearing + radiation to back + BP discrepancy = hold the aspirin.",
+w:"Incorrect. Aortic dissection is an absolute contraindication to aspirin. The antiplatelet effect worsens hemorrhage into the false lumen and can precipitate pericardial tamponade. When dissection is suspected, withhold aspirin regardless of the chest pain."}},
+{type:"mc",label:"Nitroglycerin Safety",q:"Patient is hypertensive (182/108) and in severe pain. Your partner suggests NTG to help with both. Your response?",
+opts:["Agree — NTG is the standard for hypertensive chest pain emergencies","Decline — in suspected dissection, NTG-induced hypotension can propagate the dissection and cause cardiovascular collapse; ALS manages BP with titratable IV agents","Give NTG only if the patient has a prescription for it","Give NTG but monitor BP every 30 seconds"],
+correct:1,
+fb:{c:"Correct. NTG drops preload rapidly and unpredictably. In aortic dissection, sudden hypotension is catastrophic — perfusion to the brain, heart, and kidneys depends on maintaining adequate pressure. ALS manages blood pressure with titratable IV agents (like labetalol or esmolol) that can be precisely controlled. EMT role: O₂ if needed, positioning, calm reassurance (reduces catecholamine surge), rapid ALS intercept.",
+w:"Incorrect. NTG is dangerous in suspected aortic dissection. It can cause precipitous hypotension which worsens end-organ perfusion and can extend the dissection. ALS uses titratable IV antihypertensives in this scenario, not sublingual NTG."}},
+{type:"fr",label:"Patient Communication",q:"The patient grabs your arm and says 'I know something is very wrong with me. Tell me honestly — am I dying?' Write out verbatim what you would say to him. Then explain the clinical rationale for your communication approach.",
+keyPoints:["honest","calm","avoid false reassurance","do not diagnose","focus on action","getting to hospital fast","reassurance through action not words","reduce catecholamine","stress worsens dissection"],
+gradingNote:"Good answer: honest without catastrophizing ('I'm taking what you're feeling very seriously and we are getting you to the best possible help right now'), does NOT give a field diagnosis, conveys urgency through action not panic. Clinical rationale: stress → catecholamine surge → elevated BP → propagates dissection. Calm communication is literally therapeutic in this case. Full credit requires BOTH the verbatim response AND the clinical rationale."}
+]},
+
+// ═══ CASE 3: PEDIATRIC MENINGOCOCCEMIA ═══
+{id:3,name:"The Fever That Didn't Break",
+dispatch:"UNIT 7 — Respond to 44 Birchwood Ct. Parents called for their 22-month-old son who had a seizure lasting 2 minutes. He has been febrile for 2 days. Now unconscious but breathing. ETA: 4 min.",
+vitals:[{l:"HR",v:"172",s:"v-alert"},{l:"BP",v:"84/52",s:"v-warn"},{l:"SpO₂",v:"93%",s:"v-warn"},{l:"RR",v:"42",s:"v-alert"},{l:"TEMP",v:"104.3°F",s:"v-alert"}],
+steps:[
+{type:"mc",label:"Pediatric Assessment Triangle",q:"Before touching the child, you perform the PAT from the doorway. You see: limp muscle tone, no eye contact, not crying, nasal flaring, and mottled gray skin. How do you classify this patient?",
+opts:["Stable — altered appearance in a febrile child is expected and not immediately concerning","Critically ill — abnormal appearance + increased work of breathing + abnormal circulation to skin = immediate life threat","Moderately ill — transport non-urgently and monitor en route","Unable to classify without touching the patient first"],
+correct:1,
+fb:{c:"Correct. All three PAT limbs are abnormal: Appearance = limp tone, no eye contact, no cry (TICLS abnormal); Work of Breathing = nasal flaring; Circulation to Skin = mottled, gray. This is an immediate life threat. The PAT gives you this critical information before you even touch the child — that's its power.",
+w:"Incorrect. The PAT (Pediatric Assessment Triangle) is your 30-second across-the-room impression. Abnormal Appearance + abnormal Work of Breathing + abnormal Circulation to Skin = immediate life threat. Never minimize signs in a sick child."}},
+{type:"fr",label:"Petechial Rash",q:"You expose the child's trunk and find non-blanching petechiae — small purple-red spots that do NOT turn white when pressed. Describe the blanch test, explain what non-blanching means physiologically, and explain why this finding in a febrile child is a critical emergency beyond a simple febrile seizure.",
+keyPoints:["blanch test","press finger","does not turn white","microthrombi","meningococcemia","Neisseria meningitidis","septicemia","DIC","antibiotics","time critical","mortality","septic emboli","capillary hemorrhage"],
+gradingNote:"Full credit: blanch test = press firmly on skin, normal vessels turn white then refill red; non-blanching = blood OUTSIDE vessels in skin (not changing with pressure) = microhemorrhages from septic emboli blocking microvasculature (DIC). In a febrile child = meningococcemia until proven otherwise. Can progress to limb loss, multi-organ failure, death within hours. Requires emergent antibiotics — every minute matters."},
+{type:"mc",label:"Pediatric Airway Differences",q:"En route the child becomes apneic. Which technique is INCORRECT for OPA insertion in a child vs an adult?",
+opts:["Using a tongue depressor to guide the OPA into position","Inserting the OPA upside down (concave up) and rotating 180° — this is safe in adults but risks palatal injury in children","Sizing from the center of the mouth to the earlobe","Suctioning before airway insertion if secretions are visible"],
+correct:1,
+fb:{c:"Correct. The 180° rotation technique used in adults is contraindicated in children — the soft palate can be lacerated or perforated. In pediatric OPA insertion: use a tongue depressor to guide the airway in directly (concave down), without rotation. Size: corner of mouth to earlobe or center of mouth to angle of jaw. This is a high-yield exam distinction.",
+w:"Incorrect. The adult OPA rotation technique (insert concave up, rotate 180°) is CONTRAINDICATED in children. The pediatric soft palate is delicate and can be severely injured. Use a tongue depressor and insert directly in the correct orientation."}},
+{type:"mc",label:"BVM Ventilation — Pediatric",q:"You begin BVM ventilations on the 22-month-old. Which statement about pediatric BVM technique is MOST accurate?",
+opts:["Use the same tidal volume as an adult — the goal is chest rise regardless of age","Use a pediatric mask and deliver only enough volume to see gentle chest rise — overventilation causes gastric distension, vomiting, and aspiration","Ventilate at 20–24 breaths per minute to match the child's elevated normal respiratory rate","Pediatric BVM technique is identical to adult — no modifications needed"],
+correct:1,
+fb:{c:"Correct. Pediatric BVM: use an appropriately sized mask for a good seal, deliver SMALL tidal volumes (just enough for visible chest rise — usually 6–8 mL/kg), rate 12–20/min for infants, 10–15 for children. Overventilation causes gastric distension (children have a horizontal stomach), vomiting, aspiration, and vagal-induced bradycardia. Less is more in pediatric airway.",
+w:"Incorrect. Pediatric BVM requires modified technique: smaller tidal volumes (just enough for chest rise), pediatric-sized mask, avoid excess pressure. Overventilation in children causes gastric distension, vomiting, aspiration, and can induce dangerous bradycardia via vagal stimulation."}}
+]},
+
+// ═══ CASE 4: HHS vs DKA ═══
+{id:4,name:"Three Days of Nothing",
+dispatch:"UNIT 7 — Respond to Suncrest Care Facility, Room 14. 79-year-old female, Type 2 diabetic. Staff says she has been 'off' for 3 days — barely eating, increasingly confused, not drinking fluids. Now nearly unresponsive. ETA: 5 min.",
+vitals:[{l:"HR",v:"124",s:"v-alert"},{l:"BP",v:"96/60",s:"v-alert"},{l:"SpO₂",v:"97%",s:"v-ok"},{l:"RR",v:"18",s:"v-ok"},{l:"BGL",v:"718",s:"v-alert"}],
+steps:[
+{type:"fr",label:"DKA vs HHS",q:"BGL is 718 mg/dL. Her breathing is normal — not deep or rapid. No fruity breath odor. She has been declining for 3 days. Compare and contrast this presentation with DKA, explaining the mechanism behind EACH difference. Why does HHS not produce Kussmaul breathing or fruity breath?",
+keyPoints:["HHS","hyperglycemic hyperosmolar state","Type 2","residual insulin","no ketones","no Kussmaul","no fruity breath","slow onset","extreme dehydration","Type 1 DKA","ketoacidosis","Kussmaul compensatory","fruity breath acetone","elderly"],
+gradingNote:"Full credit: HHS has residual insulin (Type 2) — enough to prevent fat breakdown/ketogenesis but NOT enough to control glucose. No ketones = no metabolic acidosis = no Kussmaul breathing (which compensates for acidosis) and no fruity acetone breath. DKA = absolute insulin deficiency → fat breakdown → ketones → acidosis → Kussmaul. HHS = extreme hyperglycemia + dehydration, develops over days/weeks, higher mortality than DKA."},
+{type:"mc",label:"Volume Deficit Estimation",q:"A patient with HHS can have a total body water deficit of up to 9–10 liters. Which physical exam findings would you expect from this degree of dehydration?",
+opts:["Moist mucous membranes and good skin turgor — HHS is primarily a glucose problem, not a fluid problem","Dry/cracked mucous membranes, skin tenting with poor turgor, sunken eyes, tachycardia, hypotension, and minimal urine output","Peripheral edema — fluid shifts from intravascular to tissues during hyperglycemia","Normal skin exam — dehydration signs appear only with actual water loss, not glucose elevation"],
+correct:1,
+fb:{c:"Correct. HHS causes profound osmotic diuresis — the extremely high glucose pulls water out of cells and into urine (glucosuria), leading to massive dehydration. Expect: dry/cracked lips and mucous membranes, skin tenting (slow turgor return), sunken eyes, tachycardia as compensation, hypotension, and minimal urine. This patient may have lost nearly 9 liters of fluid over days.",
+w:"Incorrect. HHS produces profound dehydration through osmotic diuresis — glucose in urine pulls enormous amounts of water with it. Classic signs: dry mucous membranes, skin tenting, sunken eyes, tachycardia, hypotension. The fluid deficit is the primary killer in HHS, often exceeding 9 liters."}},
+{type:"mc",label:"EMT Treatment Priority",q:"BGL 718, BP 96/60, nearly unresponsive. What is the MOST dangerous EMT error in this scenario?",
+opts:["Failing to get IV access before transport","Administering oral glucose to a patient with a BGL of 718 because you confused this with hypoglycemia","Not obtaining a 12-lead ECG in the field","Giving supplemental oxygen when SpO₂ is 97%"],
+correct:1,
+fb:{c:"Correct. Administering oral glucose to a hyperglycemic patient is a critical error. BGL of 718 is already dangerously high. Oral glucose would further elevate an already lethal blood sugar. Correct treatment: do NOT give glucose, secure ABCs, position supine (hypotension), keep warm, ALS intercept urgently for IV fluid resuscitation (these patients need liters of normal saline), rapid transport to ED.",
+w:"Incorrect. The most dangerous error is giving oral glucose to a hyperglycemic patient. Always obtain a blood glucose FIRST. Oral glucose = treatment for hypoglycemia (<70 mg/dL) only. BGL of 718 demands the opposite intervention."}},
+{type:"fr",label:"Advance Directives",q:"You cannot locate this patient's advance directives. Nursing staff says 'she has a DNR somewhere but we can't find it.' Her family is not present. Explain your legal and ethical obligations in detail, including what constitutes a valid DNR and how you document this situation.",
+keyPoints:["presume consent","valid DNR must be present","verbal report not valid","full treatment","document absence","POLST","signed by physician","physically present","cannot withhold based on verbal","document in PCR","family not present","no capacity"],
+gradingNote:"Full credit: without a VALID, PHYSICALLY PRESENT advance directive (DNR/POLST signed by physician), you PRESUME CONSENT and provide full treatment. A verbal report from staff does NOT constitute a valid order. Document in your PCR: 'No valid advance directive presented on scene. Staff verbally reported existence of DNR but document was not available. Full treatment provided per protocol.' Legal exposure if you withhold treatment based on verbal reports."}
+]},
+
+// ═══ CASE 5: DROWNING / COLD WATER ═══
+{id:5,name:"End of Summer",
+dispatch:"UNIT 7 — Respond to Clearwater Lake, east boat ramp. 17-year-old male pulled from water by bystanders. Unknown submersion time — witnesses estimate 4–6 minutes. Bystanders performing CPR. Lake water temperature approximately 58°F. ETA: 3 min.",
+vitals:[{l:"HR",v:"Absent",s:"v-alert"},{l:"BP",v:"Absent",s:"v-alert"},{l:"SpO₂",v:"Unable",s:"v-alert"},{l:"RR",v:"Absent",s:"v-alert"},{l:"Temp",v:"Cold",s:"v-alert"}],
+steps:[
+{type:"mc",label:"Scene Approach",q:"You arrive to find bystanders performing CPR on the lakeshore. The patient is pulseless and apneic. The first thing you do after BSI and scene safety?",
+opts:["Stop bystander CPR to perform your own assessment before intervening","Continue compressions with minimal interruption while your partner quickly dries the chest for AED pad placement — do not stop CPR except for rhythm analysis","Check for signs of obvious death before committing to resuscitation","Attempt to determine exact submersion time before beginning any intervention"],
+correct:1,
+fb:{c:"Correct. Bystander CPR is extremely valuable — don't interrupt it longer than necessary. Your partner dries the chest (water prevents AED adhesion and can cause pad arcing), you take over compressions seamlessly, then analyze with AED ASAP. Time without compressions is time without brain perfusion. Move efficiently, not fast and sloppy.",
+w:"Incorrect. Bystander CPR should be continued with minimal interruption. Take over compressions seamlessly, dry the chest for AED pads, analyze the rhythm. Every second without compressions reduces the chance of neurologically intact survival."}},
+{type:"fr",label:"Drowning Airway Priority",q:"Cardiac arrest from drowning is FUNDAMENTALLY different from a primary cardiac arrest (like VF from AMI). Explain this difference physiologically, and describe how this changes your CPR priority order (compressions vs ventilations) for a drowning patient.",
+keyPoints:["hypoxic arrest","primary hypoxia","oxygen depletion","ventilation priority","cardiac arrest secondary","5 rescue breaths","2:30 compression ratio some guidelines","airway first","oxygenation primary","unlike VF cardiac","compression-only less effective","O2 deficit"],
+gradingNote:"Full credit: drowning = HYPOXIC arrest. The heart stops because of oxygen deprivation, not a primary electrical problem. The core problem is a lack of O2 — fixing oxygenation is paramount. Some guidelines recommend 5 initial rescue breaths before compressions (or 30:2 with emphasis on ventilation quality). Compression-only CPR is LESS effective in drowning than in cardiac arrest because the heart will not restart until hypoxia is corrected. Contrast with VF arrest where early defibrillation is the priority."},
+{type:"mc",label:"Hypothermia and Resuscitation",q:"After 3 cycles of CPR and two AED analyses (no shock advised), your partner says 'Let's call it — he's been under too long.' Your response?",
+opts:["Agree — two AED analyses without a shockable rhythm indicates non-survivable cardiac arrest","Disagree — in cold-water drowning, hypothermia is protective of the brain and patients have survived neurologically intact after prolonged submersion; continue CPR and transport for hospital rewarming","Agree only if submersion exceeded 10 minutes","Agree — water temperature below 65°F means survival is impossible"],
+correct:1,
+fb:{c:"Correct. 'Not dead until warm and dead.' Cold water hypothermia dramatically slows cerebral metabolism and can preserve the brain even during prolonged arrest. Documented survivors have had submersions of 40+ minutes in very cold water. The AED showing asystole does not indicate death — hypothermia suppresses cardiac electrical activity. Continue CPR, transport immediately, and allow the ED to rewarm before declaring death.",
+w:"Incorrect. Cold-water drowning is the exception to usual resuscitation guidelines. Hypothermia is neuroprotective — patients have survived neurologically intact after prolonged cold-water submersion. The mantra: 'Not dead until warm and dead.' Continue CPR and transport for hospital rewarming. The decision to terminate resuscitation belongs to the ED after rewarming."}},
+{type:"mc",label:"Spinal Precautions",q:"Should you apply spinal motion restriction to this drowning patient?",
+opts:["Yes — all drowning patients require full spinal immobilization regardless of mechanism","No, unless there is a specific mechanism for spinal injury (diving into shallow water, watercraft collision, falls); recreational submersion without trauma does NOT routinely require SMR","Always immobilize — you cannot rule out spinal injury in a wet, unconscious patient","Only if the patient regains consciousness and complains of neck pain"],
+correct:1,
+fb:{c:"Correct. Modern guidelines: SMR in drowning is indicated when a reliable traumatic mechanism exists (diving, surfing, watercraft impact, falls). For recreational swimming drowning without trauma, routine SMR is NOT indicated — it delays airway management, worsens hypothermia by limiting movement, and has no evidence of benefit. Airway always takes priority over precautionary SMR.",
+w:"Incorrect. Routine spinal restriction for all drownings is outdated and potentially harmful. SMR is appropriate when a specific traumatic mechanism exists. Without that, airway management and CPR take absolute priority. Do not let precautionary SMR delay life-saving intervention."}}
+]},
+
+// ═══ CASE 6: SEROTONIN SYNDROME ═══
+{id:6,name:"New Medication Monday",
+dispatch:"UNIT 7 — Respond to Eastfield University Dorms, Building C, Room 311. 21-year-old female, roommate called. Patient is agitated, confused, shaking uncontrollably, and 'burning up.' Roommate mentions she started a new antidepressant last week and also takes tramadol for chronic back pain. ETA: 4 min.",
+vitals:[{l:"HR",v:"152",s:"v-alert"},{l:"BP",v:"168/104",s:"v-alert"},{l:"SpO₂",v:"96%",s:"v-ok"},{l:"RR",v:"28",s:"v-alert"},{l:"TEMP",v:"105.1°F",s:"v-alert"}],
+steps:[
+{type:"fr",label:"Toxidrome Recognition",q:"The patient has: hyperthermia 105.1°F, severe agitation, muscle rigidity in her lower extremities, hyperreflexia (exaggerated reflexes), diaphoresis, and tachycardia. She started sertraline (SSRI) 8 days ago and takes tramadol daily. Name the syndrome, explain the mechanism, and distinguish it from two other hyperthermia syndromes you know (heat stroke and neuroleptic malignant syndrome).",
+keyPoints:["serotonin syndrome","SSRI","tramadol serotonergic","excess serotonin","Hunter criteria","agitation AMS","autonomic instability","neuromuscular hyperactivity","heat stroke no rigidity","NMS antipsychotic","NMS slow onset","NMS lead pipe rigidity","no drug combo for heat stroke"],
+gradingNote:"Full credit: Serotonin Syndrome = excess serotonergic activity from drug combination (SSRI + tramadol, which has SNRI-like properties). Hunter Criteria: (1) AMS/agitation, (2) autonomic instability (tachycardia, hyperthermia, diaphoresis), (3) neuromuscular hyperactivity (clonus, hyperreflexia, rigidity). Heat stroke: high temp + AMS but NO rigidity/hyperreflexia, caused by environmental exposure. NMS: antipsychotic-caused, 'lead pipe' rigidity, slow onset days-weeks vs serotonin syndrome hours."},
+{type:"mc",label:"Hyperthermia Treatment",q:"Temperature 105.1°F and the patient is actively seizing. At the EMT level, which intervention addresses the hyperthermia most effectively?",
+opts:["Oral acetaminophen — a fever reducer will bring down the temperature","Active external cooling: remove all clothing, apply wet towels, fan vigorously for evaporative cooling, ice packs to neck/axillae/groin during transport","Wrap the patient in a blanket to prevent heat loss from shivering","NTG SL to vasodilate and release heat from the skin"],
+correct:1,
+fb:{c:"Correct. This hyperthermia is NOT hypothalamus-driven (so antipyretics like acetaminophen are minimally effective). It is driven by excessive muscle activity generating metabolic heat. Active cooling is the treatment: remove clothing (insulation traps heat), wet skin + fan = evaporative cooling (most efficient), ice packs to high blood flow areas (neck, axillae, groin). Target temp < 102°F. Above 106°F causes irreversible brain damage.",
+w:"Incorrect. Acetaminophen works on hypothalamic fever — this hyperthermia is from muscle hyperactivity, not central fever. Active external cooling is the treatment: remove clothing, wet + fan (evaporative cooling), ice packs to vascular areas. NTG has no role in hyperthermia. Blankets worsen the situation."}},
+{type:"mc",label:"Chemical Sedation Rationale",q:"ALS arrives and administers IV diazepam (a benzodiazepine). Why is this the appropriate drug class for serotonin syndrome?",
+opts:["Benzodiazepines block serotonin receptors directly, reversing the syndrome at its source","Benzodiazepines reduce CNS excitability and neuromuscular hyperactivity — decreasing agitation, muscle rigidity, and the heat generated by excessive muscle activity","Benzodiazepines are anti-emetics that prevent the vomiting common in serotonin syndrome","Benzodiazepines lower blood pressure and are primarily used for hypertension in this context"],
+correct:1,
+fb:{c:"Correct. Benzos don't block serotonin receptors — they enhance GABA (inhibitory neurotransmitter), reducing CNS excitability. This directly addresses the mechanism: less neural excitation → less agitation → less muscle rigidity → less metabolic heat generation → lower temperature. They also reduce seizure risk and rhabdomyolysis from sustained muscle contraction. Understanding the mechanism — not just the drug name — makes you a better clinician.",
+w:"Incorrect. Benzodiazepines work by enhancing GABA-mediated inhibition, reducing CNS excitability and neuromuscular hyperactivity. They don't block serotonin directly. The result: less agitation, less rigidity, less heat from muscle activity, lower temperature. The mechanism matters."}},
+{type:"fr",label:"Medication Reconciliation",q:"The roommate hands you a bag with 7 pill bottles. Describe your complete approach to medication documentation at the scene — what you take, what you do with it, what questions you ask, and why the specific combination of sertraline + tramadol is dangerous. Include what information you relay to the receiving hospital.",
+keyPoints:["bring all bottles","photograph labels","name dose frequency","last dose time","ask OTC supplements","ask recreational drugs","sertraline SSRI","tramadol serotonergic SNRI-like","drug interaction","relay to hospital","document medications","avoid further serotonergic drugs"],
+gradingNote:"Full credit: bring ALL bottles to hospital (or photograph with phone), document name/dose/frequency, ask about last dose of each, ask about OTC medications and supplements (many have serotonergic activity: St. John's Wort, dextromethorphan), ask about recreational drug use. Sertraline (SSRI) + tramadol (weak opioid with SNRI-like serotonin reuptake inhibition) = additive serotonergic load → syndrome. Relay exact drug list + timing to ED so they avoid prescribing further serotonergic agents."}
+]},
+
+// ═══ CASE 7: MASSIVE PULMONARY EMBOLISM ═══
+{id:7,name:"Ten Days Post-Op",
+dispatch:"UNIT 7 — Respond to 3309 Riviera Blvd. 56-year-old female, 10 days after total knee replacement. Husband called reporting sudden onset severe shortness of breath and she briefly passed out. Now conscious but in extreme distress. ETA: 5 min.",
+vitals:[{l:"HR",v:"134",s:"v-alert"},{l:"BP",v:"88/54",s:"v-alert"},{l:"SpO₂",v:"82%",s:"v-alert"},{l:"RR",v:"32",s:"v-alert"},{l:"BGL",v:"102",s:"v-ok"}],
+steps:[
+{type:"mc",label:"Risk Factor Analysis",q:"Which combination of factors from this patient's history creates the highest risk for pulmonary embolism?",
+opts:["Her age and female sex alone are sufficient to explain this presentation","Virchow's Triad is fully present: venous stasis from post-op immobility + hypercoagulable surgical state + endothelial injury at the surgical site","High-fat diet and hypertension are the primary PE risk factors","PE only occurs in patients with known clotting disorders"],
+correct:1,
+fb:{c:"Correct. Virchow's Triad (1856 — still the gold standard): (1) Venous stasis — post-op immobility keeps blood pooling in leg veins, (2) Hypercoagulability — surgery triggers clotting cascade as a healing response, (3) Endothelial damage — surgical trauma to vessels near the knee. ALL THREE are present. Knee replacement carries some of the highest DVT/PE risk of any elective surgery. This is a predictable, preventable, and often fatal outcome.",
+w:"Incorrect. Virchow's Triad explains DVT/PE: stasis + hypercoagulability + endothelial injury. Post-op immobility provides all three. Knee replacement specifically is one of the highest-risk procedures for thromboembolism. Recognizing risk factors before the vitals even register is expert-level clinical thinking."}},
+{type:"fr",label:"Obstructive Shock Mechanism",q:"BP is 88/54 and dropping. Your partner says 'Let's run in some fluids — she's in shock.' Explain why massive PE causes shock, why fluid resuscitation must be approached differently than hemorrhagic shock, and what you tell your partner.",
+keyPoints:["obstructive shock","clot blocks pulmonary artery","right heart failure","RV pressure overload","decreased left heart filling","decreased cardiac output","hypotension","fluids can worsen RV failure","overload RV","vasopressors needed","not hemorrhagic","empty tank vs big tank wrong analogy","ALS for vasopressors"],
+gradingNote:"Full credit: massive PE blocks pulmonary blood flow → RV must pump against massive resistance → RV fails → less blood reaches left heart → decreased cardiac output → hypotension. The RV is ALREADY failing from pressure overload — adding large volumes overloads it further and can cause RV rupture/complete failure. Small cautious fluid challenge (250-500mL) may temporarily help. Definitive: vasopressors (ALS) + thrombolytics or surgery at hospital. Tell partner: 'Careful with fluids — this isn't an empty tank, the right heart is failing.'"},
+{type:"mc",label:"Syncope Significance",q:"She briefly lost consciousness before you arrived. In the context of this presentation, syncope indicates:",
+opts:["She is probably dehydrated and simply fainted — common after any surgical procedure","Massive or high-risk PE — syncope reflects transient cessation of adequate cardiac output from severe pulmonary obstruction; highest mortality category","She likely has an underlying cardiac arrhythmia unrelated to the PE","Syncope in post-op patients is always positional and benign"],
+correct:1,
+fb:{c:"Correct. Syncope + hemodynamic compromise (hypotension + tachycardia) + severe hypoxia in PE = MASSIVE PE classification. This is the highest-risk stratification with the highest mortality. These patients need emergent imaging (CT pulmonary angiography), systemic thrombolytics, or surgical embolectomy. Pre-notify the receiving hospital as 'Massive PE with syncope and hemodynamic instability' — this activates their PE rapid response team.",
+w:"Incorrect. Syncope in PE is not benign. It indicates that cardiac output fell so severely that cerebral perfusion was lost — this is MASSIVE PE, the highest-risk category. These patients require systemic thrombolytics or surgical embolectomy at the hospital. This pre-notification language matters: 'Massive PE, syncopal episode, hemodynamically unstable.'"}},
+{type:"mc",label:"Aspirin in PE",q:"Should you administer aspirin to this patient?",
+opts:["Yes — aspirin prevents further clot formation and is indicated for all suspected thromboembolic events","No — aspirin is not part of the EMT treatment protocol for PE; it does not dissolve existing clots and can cause GI bleeding; the definitive treatment is anticoagulation or thrombolytics at the hospital","Yes — same rationale as AMI treatment","Aspirin is optional — give it if the patient requests it"],
+correct:1,
+fb:{c:"Correct. Aspirin is not indicated for PE. It does not dissolve formed clots and adds bleeding risk. The definitive treatments — anticoagulation (heparin), systemic thrombolytics (tPA), or surgical embolectomy — are hospital-level interventions. EMT role: O₂ (high-flow), position of comfort (upright often helps breathing), cautious fluids if indicated by ALS, rapid transport, pre-notification.",
+w:"Incorrect. Aspirin has no role in acute PE management. The clot is already formed — aspirin's antiplatelet effect doesn't break it down. Definitive treatment requires anticoagulation or thrombolytics at the hospital. EMT: O₂ + transport + ALS intercept."}}
+]},
+
+// ═══ CASE 8: EXCITED DELIRIUM / RESTRAINT ASPHYXIA ═══
+{id:8,name:"The Call from Retail",
+dispatch:"UNIT 7 — Respond to Landmark Hardware, 900 Industrial Blvd. 33-year-old male causing a disturbance. Police on scene. Caller states man is 'impossibly strong,' naked from the waist up in December, smashing shelving, and appears to feel no pain. Officers are struggling to restrain him. ETA: 2 min.",
+vitals:[{l:"HR",v:"168",s:"v-alert"},{l:"BP",v:"196/118",s:"v-alert"},{l:"SpO₂",v:"97%",s:"v-ok"},{l:"RR",v:"30",s:"v-alert"},{l:"TEMP",v:"103.6°F",s:"v-alert"}],
+steps:[
+{type:"fr",label:"Syndrome Recognition",q:"Before you even get to the patient, dispatch has given you enough information to form a working diagnosis. List the classic features of Excited Delirium Syndrome (ExDS) and explain which specific elements from this dispatch call match. Include the most likely drug class responsible.",
+keyPoints:["excited delirium","ExDS","superhuman strength","pain insensitivity","hyperthermia","disrobing","extreme agitation","stimulants","cocaine","methamphetamine","cathinones bath salts","sympathomimetic","sudden cardiac death risk","high mortality"],
+gradingNote:"Full credit: ExDS features = (1) extreme agitation beyond typical psychosis, (2) superhuman strength, (3) pain insensitivity, (4) disrobing (thermoregulatory failure — feels hot despite cold environment), (5) hyperthermia, (6) tachycardia/hypertension. Dispatch matches: impossibly strong + naked in December (disrobing) + smashing things (agitation) + feels no pain. Most likely cause: stimulant toxidrome — cocaine, methamphetamine, or synthetic cathinones (bath salts). High risk for sudden cardiac death from sympathetic storm, hyperthermia, and acidosis."},
+{type:"mc",label:"Positional Asphyxia",q:"You arrive to find officers have physically restrained the patient face-down (prone) on the floor, with two officers applying bodyweight to his back. As the EMT, your IMMEDIATE clinical concern is:",
+opts:["Whether the patient has any obvious injuries from the physical altercation","Positional/restraint asphyxia — prone positioning with weight on the back prevents chest wall expansion; this can cause fatal respiratory failure within minutes","The patient's blood pressure — hypertension is the primary risk in stimulant intoxication","Establishing IV access before moving the patient"],
+correct:1,
+fb:{c:"Correct. Positional/restraint asphyxia is a leading cause of in-custody death. Prone restraint with weight on the back compresses the chest wall, prevents diaphragmatic excursion, and obstructs ventilation. The patient cannot breathe adequately. Your immediate action: advocate to roll the patient to lateral or supine position. Communicate clearly and calmly to officers: 'We need to move him to his side — face-down position can stop his breathing.' Document the position and time.",
+w:"Incorrect. Prone restraint is immediately life-threatening. Weight on the back prevents chest wall expansion — the patient cannot breathe. This is positional asphyxia and it kills within minutes. Your most urgent action is advocating to change the patient's position, not assessing other injuries."}},
+{type:"mc",label:"Monitoring Post-Sedation",q:"ALS administers IM ketamine. The patient ... (83 KB left)
