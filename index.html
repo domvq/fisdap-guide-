@@ -292,4 +292,505 @@ opts:["Whether the patient has any obvious injuries from the physical altercatio
 correct:1,
 fb:{c:"Correct. Positional/restraint asphyxia is a leading cause of in-custody death. Prone restraint with weight on the back compresses the chest wall, prevents diaphragmatic excursion, and obstructs ventilation. The patient cannot breathe adequately. Your immediate action: advocate to roll the patient to lateral or supine position. Communicate clearly and calmly to officers: 'We need to move him to his side — face-down position can stop his breathing.' Document the position and time.",
 w:"Incorrect. Prone restraint is immediately life-threatening. Weight on the back prevents chest wall expansion — the patient cannot breathe. This is positional asphyxia and it kills within minutes. Your most urgent action is advocating to change the patient's position, not assessing other injuries."}},
-{type:"mc",label:"Monitoring Post-Sedation",q:"ALS administers IM ketamine. The patient ... (83 KB left)
+{type:"mc",label:"Monitoring Post-Sedation",q:"ALS administers IM ketamine. The patient becomes calm within 2 minutes. What is the MOST important aspect of your monitoring role now?",
+opts:["The emergency is resolved — hand off to ALS and prepare for hospital arrival","Continuous airway and respiratory monitoring — ketamine can cause laryngospasm and respiratory depression; SpO₂ must be watched continuously and BVM must be immediately available","Reassess vital signs every 15 minutes per stable patient protocol","Ask the patient questions to assess for underlying psychiatric illness now that he is calm"],
+correct:1,
+fb:{c:"Correct. Ketamine is generally airway-safe but laryngospasm is a known complication, and patients can have unpredictable respiratory responses. Your monitoring obligation increases post-sedation: continuous SpO₂, watch chest rise, be ready to manage airway with BVM instantly. Also monitor temperature — it may continue to rise even after sedation as the metabolic heat from prior muscle activity dissipates.",
+w:"Incorrect. Post-sedation monitoring is more critical, not less. Ketamine can cause laryngospasm, emergence agitation, and respiratory depression. Continuous airway assessment + SpO₂ monitoring + BVM at hand is mandatory. The call is not over when the patient is calm."}},
+{type:"fr",label:"Documentation and Legal Exposure",q:"The patient survives but his family later claims he was 'fine before EMS arrived.' Describe what your PCR documentation should specifically include to protect yourself, the officers, and accurately represent the clinical picture. Include timing, positions, and clinical findings.",
+keyPoints:["exact time","GCS","vital signs","position on arrival","prone","weight on back","time moved to lateral","SpO2 on arrival","interventions and times","who was present","patient behavior","temperature","sedation time","scene description","objective findings not opinions"],
+gradingNote:"Full credit: PCR must include: exact arrival time, patient position documented (e.g., 'On arrival patient was found prone on floor with two officers applying restraint to back'), time position changed, serial vital signs with timestamps, GCS at each point, SpO₂ trend, all interventions + exact times, patient behavior described objectively (actions not opinions: 'patient struck shelving' not 'patient was violent'), witnesses present, temperature. Objective language only. This documentation is a legal record."}
+]},
+
+// ═══ CASE 9: ECTOPIC PREGNANCY ═══
+{id:9,name:"The 3 a.m. Call",
+dispatch:"UNIT 7 — Respond to 621 Magnolia Ave, Apt 3B. 24-year-old female, roommate called. Sudden onset severe lower abdominal pain and she fainted briefly. Now on the bathroom floor, pale and diaphoretic. Onset approximately 90 minutes ago. ETA: 4 min.",
+vitals:[{l:"HR",v:"132",s:"v-alert"},{l:"BP",v:"86/52",s:"v-alert"},{l:"SpO₂",v:"97%",s:"v-ok"},{l:"RR",v:"24",s:"v-warn"},{l:"BGL",v:"94",s:"v-ok"}],
+steps:[
+{type:"mc",label:"Critical History Question",q:"You enter the bathroom. Patient is pale, diaphoretic, in obvious pain. Before anything else, what is the single most important history question for a female patient of reproductive age with acute abdominal pain and hemodynamic instability?",
+opts:["When did you last eat or drink anything?","Is there any chance you could be pregnant — even if you don't think so?","Do you have a history of kidney stones or appendicitis?","Are you currently menstruating?"],
+correct:1,
+fb:{c:"Correct. Any woman of reproductive age + acute abdominal pain + hemodynamic instability = rule out ectopic pregnancy until proven otherwise. Ectopic pregnancy is the leading cause of first-trimester maternal death. The patient may not know she is pregnant — home tests are negative early, and IUDs/contraception do not eliminate the risk. Ask the question directly and non-judgmentally. Every minute matters if the tube has ruptured.",
+w:"Incorrect. The question 'is there any chance you could be pregnant?' is non-negotiable for any woman of reproductive age with acute abdominal pain and shock signs. Ectopic pregnancy can rupture and cause fatal hemorrhage — it is the leading cause of first-trimester maternal mortality. The patient may not know she is pregnant."}},
+{type:"mc",label:"Kehr's Sign",q:"She reports her last period was 6–7 weeks ago, which is unusual. She has left lower quadrant pain that radiates to her left shoulder. What is this shoulder pain called and what causes it?",
+opts:["Referred cardiac pain — always consider MI in abdominal emergencies","Kehr's sign — free blood in the peritoneal cavity irritates the diaphragm; the phrenic nerve (C3-C5) refers this pain to the ipsilateral shoulder","Musculoskeletal strain from the fall when she fainted","Pleurisy — pleural inflammation often accompanies abdominal emergencies"],
+correct:1,
+fb:{c:"Correct. Kehr's sign: blood collecting under the diaphragm irritates the phrenic nerve (which shares its nerve root origin C3–C5 with the shoulder). The brain interprets this as shoulder pain. It is a CLASSIC sign of intraperitoneal hemorrhage. Combined with amenorrhea, LLQ pain, and hemodynamic instability, this presentation is ruptured ectopic pregnancy until proven otherwise. This sign was described in 1895 and remains a critical emergency medicine finding.",
+w:"Incorrect. Kehr's sign = shoulder pain from diaphragmatic irritation by free intraperitoneal blood. The phrenic nerve (C3-C5) innervates the diaphragm and refers pain to the shoulder. This is a hallmark of intraabdominal hemorrhage, not cardiac or musculoskeletal pathology."}},
+{type:"fr",label:"Hemorrhagic Shock Treatment",q:"You have confirmed hemodynamic instability with suspected intraabdominal hemorrhage. You are 9 minutes from a hospital with an OR available. List your treatment steps in sequence, explain the rationale for each, and identify which step is the MOST critical and why.",
+keyPoints:["high flow O2","supine legs elevated","keep warm","ALS intercept","IV access","avoid excessive fluids","rapid transport","pre-notify hospital","OR trauma team","definitive treatment is surgery","cannot stop internal bleeding in field","permissive hypotension"],
+gradingNote:"Full credit: (1) High-flow O₂ — maximize oxygen delivery to remaining circulation, (2) Supine + legs elevated — maximize venous return to compromised circulation, (3) Keep warm — hypothermia worsens coagulopathy (ability to clot), (4) ALS intercept — IV access, permissive hypotension (BP ~80-90 systolic may be target to avoid diluting clotting factors), (5) Rapid transport + pre-notify OR team. MOST CRITICAL: rapid transport + hospital pre-notification, because definitive treatment is SURGERY — you cannot stop internal hemorrhage in the field."},
+{type:"mc",label:"Compassionate Response",q:"She is trembling and asks: 'Is my baby okay? Am I losing my baby?' How do you respond?",
+opts:["Tell her directly that based on her symptoms, she has most likely lost the pregnancy — she needs to prepare herself","Respond with honesty and compassion without diagnosing: focus on getting her to care that can answer her questions, while actively showing you are taking her seriously","Tell her everything is probably fine to keep her calm during transport","Ignore the question until she is stabilized — emotional matters are secondary"],
+correct:1,
+fb:{c:"Correct. You cannot confirm obstetric outcomes in the field — you have no ultrasound, no lab results. False reassurance ('everything will be fine') is dishonest and will be remembered. Brutal honesty ('you're probably losing it') is cruel and clinically inappropriate. The right approach: 'I hear how scared you are. I'm taking this seriously — we're getting you to doctors who can tell you what's happening and help you right now. I'm right here.' Action IS reassurance. Your movement and urgency communicate seriousness without words.",
+w:"Incorrect. Neither false reassurance nor field diagnosis is appropriate. Honest, compassionate action is: 'I hear you and I'm taking this very seriously. We're getting you to the doctors who can answer your questions and help you.' Your urgency and attention demonstrate that you understand the severity without requiring explicit statements."}}
+]},
+
+// ═══ CASE 10: SEPTIC SHOCK ═══
+{id:10,name:"The Dialysis Chair",
+dispatch:"UNIT 7 — Respond to 77 Crestview Terrace. 63-year-old male, ESRD on hemodialysis. Wife says he has been feverish and confused for 2 days, won't eat. Has an AV fistula in the left arm that appears red, swollen, and warm. ETA: 5 min.",
+vitals:[{l:"HR",v:"116",s:"v-alert"},{l:"BP",v:"82/50",s:"v-alert"},{l:"SpO₂",v:"93%",s:"v-warn"},{l:"RR",v:"28",s:"v-alert"},{l:"TEMP",v:"103.7°F",s:"v-alert"}],
+steps:[
+{type:"fr",label:"qSOFA Criteria",q:"Explain qSOFA to your partner who has never heard of it. State each criterion with its threshold, evaluate this patient against each criterion, and explain why EMT recognition of sepsis matters even though treatment is largely hospital-based.",
+keyPoints:["qSOFA","quick SOFA","respiratory rate 22","systolic BP 100","altered mental status","two of three","this patient meets all three","RR 28","BP 82","confused","sepsis protocol","pre-notify","time to antibiotics","every hour matters","EMS activation"],
+gradingNote:"Full credit: qSOFA = (1) RR ≥22 — this patient 28 ✓, (2) SBP ≤100 — this patient 82 ✓, (3) AMS (any change from baseline) — this patient confused ✓. 2+ criteria = high sepsis risk. WHY it matters for EMTs: pre-notifying 'sepsis alert' activates the hospital sepsis protocol, getting antibiotics prepared before arrival. Each hour delay in antibiotics = ~7% mortality increase. EMT recognition is the first link in the chain of survival for sepsis."},
+{type:"mc",label:"Distributive Shock Mechanism",q:"You tell your partner: 'This is distributive shock — it's different from bleeding.' Your partner asks what that means. The best explanation is:",
+opts:["Distributive shock means the blood has spread to the wrong organs and needs to be redirected","In sepsis, bacterial toxins cause massive vasodilation — the blood vessels dilate so much that the same volume of blood cannot maintain adequate pressure; the 'tank' is too big, not empty","Distributive shock only affects patients over 60 and is caused by age-related vessel weakness","The heart muscle is damaged and cannot pump effectively — causing blood to distribute poorly"],
+correct:1,
+fb:{c:"Correct. Perfect analogy: hemorrhagic shock = tank is EMPTY. Distributive shock = tank is TOO BIG. In sepsis, cytokines cause pathological vasodilation — the vascular bed expands dramatically. The same amount of blood cannot maintain adequate pressure in a massively dilated system. This is why septic patients can receive 2-3 liters of fluid with minimal BP response — you're trying to fill a suddenly much larger tank. Vasopressors 'squeeze' the tank back to size.",
+w:"Incorrect. Distributive shock in sepsis: bacterial toxins → massive vasodilation → vascular bed too large → relative hypovolemia despite normal blood volume. The tank is too big, not empty. Unlike hemorrhagic shock where fluids definitively help, septic shock often requires vasopressors (to constrict vessels) in addition to fluids."}},
+{type:"mc",label:"AV Fistula Access",q:"ALS wants IV access. All peripheral veins are collapsed. The AV fistula is prominent and accessible. Should the fistula be used for emergent IV access?",
+opts:["Yes — access to circulation is all that matters in a critical emergency; any accessible vessel should be used","No — AV fistulas should only be accessed by trained personnel using specific technique; improper access can permanently destroy the patient's dialysis access, which is life-sustaining for ESRD patients; IO access is the safer alternative","Yes — fistulas are designed for repeated vascular access","It depends on whether the patient consents"],
+correct:1,
+fb:{c:"Correct. AV fistulas are surgically created arteriovenous anastomoses requiring specific needles, angle, and technique. Improper access can cause thrombosis, hematoma, or rupture — permanently destroying the patient's dialysis access. For an ESRD patient, the fistula IS their life. Intraosseous (IO) access is the safer emergency alternative. Alert the receiving hospital so their dialysis team is involved.",
+w:"Incorrect. AV fistulas are not standard IV access points. They require specific training, needle type, and technique. Improper cannulation can permanently destroy a dialysis patient's lifeline. IO access provides an alternative when peripheral access fails in a critical patient."}},
+{type:"fr",label:"Family Communication in Critical Illness",q:"The wife is in tears, saying 'He was fine two weeks ago. How did this happen so fast?' You have 6 minutes of transport time. Write what you say to her, and explain the communication principles behind your approach for a family member in acute crisis.",
+keyPoints:["validate feelings","honest without catastrophizing","explain what you are doing","avoid jargon","two weeks not fine — infection brewing","reassure through action","do not make promises","include her","she can hold his hand","calm tone","direct eye contact","invite questions"],
+gradingNote:"Good verbatim response validates her fear ('This is really scary and I understand'), explains in plain language what is happening ('His body is fighting a serious infection and we need to get him to the hospital fast'), explains your actions ('We are giving him oxygen and the doctors will start treatment right away'), does NOT make false promises about outcome. Communication principles: validate first, then inform, then act. Jargon-free. Include the family member — ask if she wants to ride along. Calm provider energy is contagious and reduces patient's sympathetic response."}
+]},
+
+// ═══ CASE 11: HYPERTENSIVE EMERGENCY / HYPERTENSIVE ENCEPHALOPATHY ═══
+{id:11,name:"Sunday Morning Headache",
+dispatch:"UNIT 7 — Respond to 204 Rosewood Drive. 52-year-old male, wife called. He woke with the 'worst headache of his life' and now has blurry vision and is vomiting. History of uncontrolled hypertension — non-compliant with medications. ETA: 5 min.",
+vitals:[{l:"HR",v:"92",s:"v-ok"},{l:"BP",v:"226/134",s:"v-alert"},{l:"SpO₂",v:"97%",s:"v-ok"},{l:"RR",v:"18",s:"v-ok"},{l:"BGL",v:"106",s:"v-ok"}],
+steps:[
+{type:"fr",label:"Worst Headache Differential",q:"'Worst headache of my life' (thunderclap headache) is a red flag phrase in emergency medicine. List at least THREE life-threatening causes of this presentation, explain how each causes the headache, and describe the one EMT intervention that is appropriate for ALL of them.",
+keyPoints:["subarachnoid hemorrhage","hypertensive encephalopathy","meningitis","cerebral venous thrombosis","ruptured berry aneurysm","rapid onset","sudden max intensity","no aspirin subarachnoid","transport","CT needed","low stimulation environment","dim lights","position of comfort","do not delay"],
+gradingNote:"Full credit lists 3+ of: (1) Subarachnoid hemorrhage — blood in subarachnoid space irritates meninges; thunderclap = vessel rupture; (2) Hypertensive encephalopathy — severely elevated BP disrupts blood-brain barrier, causes cerebral edema; (3) Meningitis — inflammation of meninges; (4) Cerebral venous sinus thrombosis — elevated intracranial pressure. EMT intervention appropriate for ALL: rapid transport to CT-capable facility, minimize stimulation (lights, noise), position of comfort, IV if scope allows, pre-notify."},
+{type:"mc",label:"BP Treatment in the Field",q:"BP is 226/134. Should you attempt to aggressively lower this blood pressure in the field?",
+opts:["Yes — BP this high must be lowered immediately with any available means","No — do NOT aggressively lower BP in the field; if this is a hemorrhagic stroke, lowering BP too rapidly can reduce cerebral perfusion pressure and worsen outcomes; controlled reduction requires IV titratable agents in the ICU","Yes — give NTG SL to start reducing the BP within minutes","Yes — have the patient perform a Valsalva maneuver to reduce BP"],
+correct:1,
+fb:{c:"Correct. Never aggressively lower BP in the field for suspected hypertensive emergency/stroke. The brain autoregulates cerebral perfusion based on MAP — when BP is chronically elevated, the brain's autoregulation is reset to higher pressures. Rapid reduction can drop cerebral perfusion below the brain's threshold, causing ischemia. ICU-level management with titratable IV agents (nicardipine, labetalol) allows precise, controlled reduction. EMT: minimize stimulation, O₂ if needed, rapid transport, ALS intercept.",
+w:"Incorrect. Rapid BP reduction in the field is dangerous in hypertensive emergency. The brain autoregulates to elevated pressures — rapid drops cause ischemia. Controlled reduction in the ICU with IV titratable agents is the appropriate approach. NTG and Valsalva maneuver are inappropriate here."}},
+{type:"mc",label:"Thunderclap Headache vs Migraine",q:"The patient says 'I get migraines sometimes — maybe this is just a bad one.' How do you distinguish a subarachnoid hemorrhage headache from a migraine in the field?",
+opts:["You cannot distinguish them — treat all headaches the same way","Subarachnoid hemorrhage classically presents as sudden maximum-intensity headache ('thunderclap') reaching peak within seconds to minutes, often with neck stiffness, vomiting, and photophobia — treat as SAH until CT proves otherwise","Migraine always responds to ibuprofen; if the headache doesn't improve with ibuprofen, it's an emergency","The presence of visual disturbances indicates migraine, not hemorrhage"],
+correct:1,
+fb:{c:"Correct. The key distinction: TIMING of onset. SAH = thunderclap — reaches maximum intensity in seconds to minutes ('like being hit with a bat'). Migraine = gradual build over minutes to hours. Both can have photophobia, nausea, vomiting — these are NOT distinguishing. Neck stiffness (meningismus from blood irritating meninges) points toward SAH or meningitis. In the field, you CANNOT rule out SAH — treat as SAH until CT says otherwise. 'Worst headache of my life' is SAH until proven otherwise.",
+w:"Incorrect. The critical distinction is onset speed: SAH = instant maximum-intensity thunderclap. Migraine = gradual buildup. In the field, you cannot rule out SAH — 'worst headache of my life' + sudden onset = SAH until CT scan proves otherwise. Err on the side of urgency."}},
+{type:"fr",label:"Stroke vs Hypertensive Emergency",q:"On exam you notice his right hand grip is weaker than his left and his speech is slightly slurred. Now you have both hypertensive emergency AND possible stroke. How does this change your Cincinnati Stroke Scale assessment and your transport destination decision?",
+keyPoints:["Cincinnati stroke scale","facial droop","arm drift","speech","one positive stroke","BP very high could cause stroke","hemorrhagic stroke","ischemic stroke","stroke center","CT angiography","tPA window","pre-notify stroke alert","no aspirin if hemorrhagic","time is brain"],
+gradingNote:"Full credit: Cincinnati Stroke Scale: (1) Facial droop — assess, (2) Arm drift — right arm weaker = positive, (3) Abnormal speech — slurred = positive. Two positive = strong stroke suspicion. Transport change: needs a Comprehensive Stroke Center (CSC) or Primary Stroke Center with neurosurgery capability — because at BP 226/134 this may be HEMORRHAGIC stroke requiring neurosurgery, not tPA. Pre-notify: 'Stroke alert, BP 226/134, two Cincinnati criteria positive, possible hemorrhagic stroke.' Do NOT give aspirin."}
+]},
+
+// ═══ CASE 12: HEAT STROKE ═══
+{id:12,name:"The 5K That Went Wrong",
+dispatch:"UNIT 7 — Respond to Riverside Park, near the finish line. 34-year-old male collapsed at mile 2.5 of a 5K race. Bystanders report he stopped making sense, stumbled, and went down. Outside temperature is 97°F with 88% humidity. Wet bulb temperature is dangerous. ETA: 4 min.",
+vitals:[{l:"HR",v:"138",s:"v-alert"},{l:"BP",v:"92/60",s:"v-alert"},{l:"SpO₂",v:"96%",s:"v-ok"},{l:"RR",v:"28",s:"v-alert"},{l:"TEMP",v:"106.2°F",s:"v-alert"}],
+steps:[
+{type:"mc",label:"Heat Stroke vs Heat Exhaustion",q:"Patient is confused (GCS 12), temperature 106.2°F, tachycardia, hypotension. He is sweating heavily. Which diagnosis and what is the key distinguishing factor?",
+opts:["Heat exhaustion — sweating is present so the thermoregulatory system is intact and this is not heat stroke","Heat stroke — temperature above 104°F WITH altered mental status defines heat stroke regardless of sweating status; the old teaching that 'heat stroke = no sweating' is incorrect","Heat cramps — the exertion in heat explains all findings","Hyponatremia from excess water intake — a common runner complication"],
+correct:1,
+fb:{c:"Correct. The old teaching 'heat stroke has hot DRY skin' is WRONG. Classic heat stroke (from environmental exposure in elderly) tends to be anhidrotic, but exertional heat stroke (athletes, workers) typically presents WITH sweating. The diagnostic criteria are: Core temperature >104°F (40°C) + CNS dysfunction (confusion, seizure, coma). Both are present here — this is heat stroke. This is a brain emergency. Every degree above 104°F increases neuronal death.",
+w:"Incorrect. Sweating does NOT rule out heat stroke. Exertional heat stroke (common in athletes) frequently presents with diaphoresis. The definition of heat stroke is core temperature >104°F + CNS dysfunction. Both criteria are met here. This is heat stroke."}},
+{type:"fr",label:"Cooling Priority",q:"Temperature is 106.2°F. You have ice packs, water, a tarp, and a fan on the ambulance. Describe your complete cooling strategy in priority order, explain the physiology behind each technique, and state your temperature TARGET before transport.",
+keyPoints:["remove clothing","evaporative cooling","wet skin","fan","ice packs axillae neck groin","cold IV fluids ALS","do not delay transport","target 102°F","immersion most effective","stop cooling at 102 to avoid overshoot","movement increases metabolic heat","shade","supine"],
+gradingNote:"Full credit sequence: (1) Remove ALL clothing (insulation gone), (2) Move to shade/cool environment immediately, (3) Wet entire skin surface with water (cold if available), (4) Fan vigorously — evaporative cooling is most effective field method, (5) Ice packs to high blood flow areas (neck, axillae, groin) — these are arterial access points, (6) ALS for cold IV saline if available. Target: cool to 102°F (39°C) then stop to prevent overshoot hypothermia. Do NOT delay transport to complete cooling — transport AND cool simultaneously."},
+{type:"mc",label:"Seizure During Cooling",q:"While you are actively cooling him, the patient has a generalized tonic-clonic seizure lasting 45 seconds, then stops. Temperature is now 104.8°F. What does the seizure tell you and what is your priority?",
+opts:["The seizure is harmless — febrile seizures are benign and this is a fever-related seizure like those in children","The seizure indicates severe heat stroke with CNS injury; it generates enormous metabolic heat and can rapidly increase temperature further; cooling and transport remain the priority — do not be distracted from cooling","Stop cooling immediately — seizures lower body temperature and overcooling is now the risk","Administer aspirin for the fever — it will address the seizure cause"],
+correct:1,
+fb:{c:"Correct. Seizure in heat stroke signals severe CNS involvement. Additionally, the tonic-clonic muscle activity generates enormous metabolic heat — each minute of seizure can raise core temperature significantly. Your priorities: do NOT stop cooling (the seizure is raising the temperature back up), continue active cooling aggressively, ALS for benzodiazepines to terminate the seizure, maintain airway during and after seizure (lateral positioning), rapid transport to ED.",
+w:"Incorrect. Seizure in heat stroke is a major red flag for CNS injury. The muscle activity dramatically increases metabolic heat, counteracting your cooling efforts. Continue aggressive cooling, get ALS for seizure termination, maintain airway. Do not stop cooling."}},
+{type:"mc",label:"Transport Destination",q:"Nearest ED is 5 minutes. A hospital with a hyperbaric chamber and trauma center is 12 minutes. Where do you transport?",
+opts:["Hyperbaric/Trauma center — advanced facilities are always better","Nearest ED — heat stroke is a time-critical temperature emergency; 7 extra minutes at 106°F causes additional brain injury; get to cooling and supportive care fastest","Remain on scene until temperature drops to normal","It depends on whether the patient can be transported in the first place"],
+correct:1,
+fb:{c:"Correct. Heat stroke is a time-temperature injury — every minute at elevated temperature causes more neuronal death. The nearest ED can provide definitive cooling (ice bath immersion, cold IV fluids, evaporative cooling), supportive care, and lab monitoring. A hyperbaric chamber has no role in heat stroke. The 7 extra minutes of thermal injury to the brain outweighs any theoretical benefit of a 'better' facility. Cool and transport fast.",
+w:"Incorrect. Heat stroke is time-temperature critical. Every minute at 106°F kills more neurons. Nearest appropriate ED is the correct choice — they can provide ice bath immersion (most effective cooling), cold IV fluids, and supportive care. Hyperbaric chambers have no role in heat stroke treatment."}}
+]},
+
+// ═══ CASE 13: BETA BLOCKER OVERDOSE ═══
+{id:13,name:"The Pill Bottle",
+dispatch:"UNIT 7 — Respond to 88 Hillcrest Lane. 45-year-old male, wife found him unresponsive with an empty bottle of metoprolol (beta blocker, heart medication) nearby. She estimates he took 'at least 30 pills.' Unknown time of ingestion. ETA: 4 min.",
+vitals:[{l:"HR",v:"34",s:"v-alert"},{l:"BP",v:"72/44",s:"v-alert"},{l:"SpO₂",v:"94%",s:"v-warn"},{l:"RR",v:"10",s:"v-alert"},{l:"BGL",v:"62",s:"v-warn"}],
+steps:[
+{type:"fr",label:"Beta Blocker Toxicology",q:"Explain how beta blocker overdose causes each of the vital sign abnormalities you see: bradycardia HR 34, hypotension BP 72/44, and respiratory rate 10. Then explain why beta blocker overdose is particularly dangerous compared to other medication overdoses.",
+keyPoints:["beta blockers block beta-1 receptors","heart rate decrease","negative chronotropy","negative inotropy","decreased contractility","hypotension","vasodilation","bradycardia","calcium channel blockade at high doses","crosses blood brain barrier","CNS depression respiratory","glucose lowering hypoglycemia","fatal rapidly","limited antidote","high lethality"],
+gradingNote:"Full credit: Beta-1 blockade → negative chronotropy (slows SA node → bradycardia HR 34) + negative inotropy (reduces myocardial contractility → less BP). Some beta blockers also cause vasodilation and CNS depression (lipostatic beta blockers cross blood-brain barrier → RR 10). Beta blockers can mask hypoglycemia symptoms AND cause hypoglycemia (BGL 62). Particularly dangerous: narrow therapeutic window, rapid onset of fatal bradycardia/heart block, limited antidote options (glucagon, high-dose insulin therapy — ALS/hospital only), high case fatality rate."},
+{type:"mc",label:"Airway Priority",q:"HR 34, BP 72/44, RR 10 — patient is minimally responsive. What is your FIRST clinical priority?",
+opts:["Call Poison Control before touching the patient","Airway and breathing — RR of 10 with altered mental status requires immediate airway assessment and likely BVM support","Establish IV access to administer the antidote","Administer activated charcoal to reduce drug absorption"],
+correct:1,
+fb:{c:"Correct. ABCs first, always. RR of 10 in an adult with altered mental status represents inadequate ventilation — CO₂ will be rising and O₂ falling. Open the airway, assess tidal volume, and be prepared to assist with BVM. Activated charcoal requires a protected airway (patient cannot be at risk of aspiration) — you must assess and manage the airway BEFORE considering GI decontamination. Antidotes are ALS/hospital interventions.",
+w:"Incorrect. RR of 10 + altered mental status = inadequate ventilation. Airway and breathing are your first priority. Everything else — IV access, antidotes, charcoal — comes after you've established that the patient can breathe adequately."}},
+{type:"mc",label:"Glucose Finding",q:"BGL is 62 mg/dL (hypoglycemia). Can you administer oral glucose to this patient?",
+opts:["Yes — hypoglycemia is an immediate threat and oral glucose must be given right away","No — this patient has altered mental status and cannot protect his airway; oral glucose risks aspiration; wait for ALS for IV dextrose or glucagon","Yes — but only half a tube since his BP is low","Glucose is irrelevant in beta blocker overdose — focus only on the cardiac effects"],
+correct:1,
+fb:{c:"Correct. Oral glucose requires the patient to be conscious enough to swallow and protect their airway — this patient cannot. Oral administration risks aspiration pneumonia, which would be an additional lethal insult. The correct approach: maintain airway, assist ventilation as needed, ALS urgently for IV dextrose (D50) or IM glucagon. Note: beta blockers mask hypoglycemia symptoms AND cause it directly — always check BGL in suspected beta blocker toxicity.",
+w:"Incorrect. Oral glucose is ONLY safe when the patient can consciously swallow and protect their airway. This patient is at serious aspiration risk. ALS provides IV dextrose or IM glucagon. Do not give oral glucose to someone who cannot safely swallow."}},
+{type:"fr",label:"Suicide Attempt Protocol",q:"The pill bottle and presentation suggest a deliberate overdose. Describe your complete approach to this call beyond the medical treatment — including scene assessment, patient rights, legal considerations for transport against will, and what you document.",
+keyPoints:["suicide attempt","altered capacity","cannot refuse if altered","implied consent","involuntary transport","psychiatric hold","document scene findings","pill bottle","empty bottle","number of pills","wife as witness","safe from self harm","law enforcement","5150","document mental state at time of refusal if applicable","no weapons","thorough search"],
+gradingNote:"Full credit: Scene = note pill bottle (photograph/bring it), check for other substances, check for weapons (safety). Patient rights: a patient attempting suicide with altered mental status LACKS capacity to refuse treatment — implied consent applies. Involuntary transport is justified (psychiatric holds vary by state: 5150 in CA, Baker Act in FL). Document: scene findings objectively, pill bottle details, statements made by patient/family, mental status at each time point, law enforcement involvement. All suicidal patients require evaluation regardless of stated refusal."}
+]},
+
+// ═══ CASE 14: CARDIAC TAMPONADE ═══
+{id:14,name:"The Stabbing",
+dispatch:"UNIT 7 — Respond to 1240 Market Street behind the bar. 28-year-old male, stabbing victim. Police on scene, scene is secured. Patient has a penetrating wound to the left anterior chest near the sternum. Conscious but deteriorating. ETA: 3 min.",
+vitals:[{l:"HR",v:"142",s:"v-alert"},{l:"BP",v:"78/66",s:"v-alert"},{l:"SpO₂",value:"91%",s:"v-alert"},{l:"RR",v:"28",s:"v-alert"},{l:"GCS",v:"13",s:"v-warn"}],
+steps:[
+{type:"mc",label:"Beck's Triad",q:"On exam: JVD is present. BP is 78/66 (narrow pulse pressure). Heart sounds are muffled and distant. Wound is near the sternum. What diagnosis do these three findings suggest?",
+opts:["Tension pneumothorax — identical presentation to tamponade","Cardiac tamponade — Beck's Triad: hypotension + JVD + muffled heart sounds from blood compressing the heart within the pericardial sac","Simple hemothorax — blood in the pleural space explains all findings","Myocardial contusion from the stabbing instrument"],
+correct:1,
+fb:{c:"Correct. Beck's Triad = Hypotension + JVD + Muffled heart sounds = cardiac tamponade. Blood accumulating in the pericardial sac (a non-elastic fibrous sac around the heart) compresses the heart, preventing filling — hence hypotension. JVD from backed-up venous pressure. Muffled sounds because fluid dampens heart sounds. With penetrating anterior chest trauma near the cardiac silhouette, tamponade is your diagnosis until proven otherwise.",
+w:"Incorrect. Beck's Triad (Beck described it in 1935): hypotension + JVD + muffled heart sounds = cardiac tamponade. The pericardial sac fills with blood, compressing the heart. As little as 150-200mL of blood can be fatal in tamponade. Tension PTX also causes JVD + hypotension but has absent/decreased breath sounds, not muffled heart sounds."}},
+{type:"mc",label:"Differentiation from Tension PTX",q:"Both cardiac tamponade and tension pneumothorax present with hypotension and JVD. How do you differentiate them on exam?",
+opts:["You cannot differentiate them without a chest X-ray","Tension PTX: absent breath sounds on one side + tracheal deviation away from affected side; Tamponade: bilateral breath sounds present + muffled heart sounds + penetrating chest mechanism","Tension PTX has higher HR; tamponade has lower HR","Tamponade always causes tracheal deviation; tension PTX does not"],
+correct:1,
+fb:{c:"Correct. Critical distinction: Tension PTX = absent/decreased breath sounds on affected side + tracheal deviation AWAY from affected side (mediastinal shift). Tamponade = breath sounds PRESENT bilaterally (no pneumothorax) + muffled heart sounds + narrow pulse pressure. Mechanism helps: tension PTX can be traumatic OR spontaneous; tamponade from penetrating trauma = suspect immediately. This distinction matters because the treatments differ completely.",
+w:"Incorrect. Tension PTX: unilateral absent breath sounds + tracheal deviation. Tamponade: bilateral breath sounds intact + muffled heart sounds + narrow pulse pressure + penetrating chest mechanism. Both cause JVD + hypotension. The breath sound exam and tracheal position are your key differentiators."}},
+{type:"fr",label:"EMT Management of Tamponade",q:"You confirm clinical signs of cardiac tamponade. Pericardiocentesis (draining the pericardial sac) is ALS and hospital-level intervention. Describe what YOU do as an EMT for this patient — every action from this moment until hospital handoff.",
+keyPoints:["high flow O2","do not remove impaled object if present","wound seal","occlusive dressing","three sided","rapid transport","ALS intercept","pre-notify trauma center","IV access","position semi-Fowler's","document findings","Beck's triad","monitor","IV fluids cautiously","narrative for hospital"],
+gradingNote:"Full credit: (1) O₂ high-flow, (2) If wound open — three-sided occlusive dressing (allows air egress, prevents tension component), (3) ALS intercept urgently (pericardiocentesis is ALS), (4) Rapid transport to trauma center with cardiac surgery, (5) Pre-notify: 'Penetrating anterior chest trauma, Beck's Triad present, suspected tamponade, ETA X min,' (6) IV access en route if scope allows (careful fluid — can worsen tamponade by further elevating venous pressure), (7) Continuous monitoring with documentation of deterioration time course."},
+{type:"mc",label:"Fluid Administration in Tamponade",q:"ALS is running fluids. Your partner asks why giving fluids to a hypotensive trauma patient might actually WORSEN tamponade. The correct explanation is:",
+opts:["Fluids are always helpful in trauma hypotension — this concern is outdated","Excessive fluids increase venous return and ventricular filling pressure — in tamponade, this raises pericardial pressure further, compressing the heart even more; small judicious boluses may temporarily maintain BP until decompression","Fluids are fine to give because tamponade is only affected by the volume of blood in the pericardium, not venous pressure","Fluids should be given rapidly and in large volumes — the heart needs preload"],
+correct:1,
+fb:{c:"Correct. This is advanced physiology. In tamponade, the pericardial sac is under high pressure, compressing the heart. Aggressive fluid administration increases venous return and ventricular filling pressure — which can paradoxically increase pericardial constraint and worsen compression. Small, judicious boluses (250mL) may temporarily maintain BP by increasing filling pressure slightly. This is a bridge until pericardiocentesis decompresses the sac. Definitive: drain the blood.",
+w:"Incorrect. In tamponade, aggressive fluids can paradoxically worsen cardiac compression by increasing pericardial pressure. Small cautious fluid challenges may temporarily support BP. The definitive treatment is pericardiocentesis — draining the blood compressing the heart."}}
+]},
+
+// ═══ CASE 15: PEDIATRIC EPIGLOTTITIS ═══
+{id:15,name:"The Barking Child",
+dispatch:"UNIT 7 — Respond to 505 Willow Glen Drive. Parents called for their 4-year-old daughter with 2-day history of worsening sore throat and fever. Now suddenly much worse — sitting very still, drooling, and making a high-pitched noise when breathing. ETA: 4 min.",
+vitals:[{l:"HR",v:"164",s:"v-alert"},{l:"BP",v:"96/64",s:"v-warn"},{l:"SpO₂",v:"92%",s:"v-alert"},{l:"RR",v:"44",s:"v-alert"},{l:"TEMP",v:"103.8°F",s:"v-alert"}],
+steps:[
+{type:"mc",label:"Stridor Recognition",q:"You hear high-pitched inspiratory stridor. The child is sitting bolt upright ('tripod' or 'sniffing position'), drooling, appears terrified, and will not let anyone near her mouth. What does stridor indicate and how is it different from wheezing?",
+opts:["Stridor is another name for wheezing — both indicate lower airway obstruction from bronchospasm","Stridor is a high-pitched inspiratory sound indicating UPPER airway obstruction (above the carina); wheezing is expiratory and indicates LOWER airway (bronchospasm); they require completely different treatments","Stridor only occurs in adults; children with breathing difficulty always wheeze","Both stridor and wheezing indicate pneumonia"],
+correct:1,
+fb:{c:"Correct. Critical distinction: Stridor = upper airway obstruction (larynx, epiglottis, subglottis, trachea). Typically inspiratory. Wheezing = lower airway obstruction (bronchioles). Typically expiratory. Treatment is completely different: stridor may require surgical airway; wheezing gets albuterol. A child with inspiratory stridor + drooling + tripod posture + fever = epiglottitis or croup. Never examine the throat — you may trigger complete obstruction.",
+w:"Incorrect. Stridor ≠ wheezing. Stridor is inspiratory, indicating UPPER airway obstruction. Wheezing is expiratory, indicating LOWER airway (bronchospasm). The treatments are completely different. Never confuse them on an exam or in the field."}},
+{type:"fr",label:"Epiglottitis vs Croup",q:"Both epiglottitis and croup cause stridor in children. Compare and contrast them on: typical age, cause, appearance of the child, drooling, whether you can examine the throat, and how treatment differs.",
+keyPoints:["epiglottitis older child bacterial Hib","croup younger viral","croup seal bark cough","epiglottitis drooling tripod toxic appearance","croup barky cough not toxic","do not examine throat epiglottitis","croup racemic epinephrine dexamethasone","epiglottitis airway emergency","epiglottitis no throat exam risk spasm","croup rarely dangerous","Hib vaccine reduced epiglottitis"],
+gradingNote:"Full credit: Epiglottitis — older (2-8 years), bacterial (Haemophilus influenzae, Hib, now rarer due to vaccine), toxic-appearing, HIGH fever, drooling, tripod position, CANNOT cry/swallow, do NOT examine throat (complete obstruction risk), airway emergency requiring ER/OR management. Croup — younger (6 mo-3 yr), viral (parainfluenza), classic 'seal bark' cough, lower fever, NOT toxic-appearing, responds to cool mist/racemic epi/dexamethasone. Both have stridor but epiglottitis is immediately life-threatening."},
+{type:"mc",label:"Throat Examination Decision",q:"Your partner reaches for a tongue depressor to examine the child's throat. Your response?",
+opts:["Good idea — visualizing the airway gives critical information to guide treatment","Stop immediately — in suspected epiglottitis, examining the throat or causing any agitation can trigger complete laryngospasm and total airway obstruction; do not touch the child's mouth or throat","Proceed but use a small pediatric tongue depressor to minimize risk","Throat examination is fine as long as you have intubation equipment ready"],
+correct:1,
+fb:{c:"Correct. This is one of the most important DON'Ts in pediatric emergency medicine: NEVER examine the throat in a child with suspected epiglottitis. The inflamed, enlarged epiglottis is on the verge of causing complete obstruction. ANY agitation — a tongue depressor, a crying episode, being forced supine — can trigger laryngospasm and complete airway obstruction. Leave the child in her position of comfort (tripod/sniffing), minimize any intervention that could agitate her, and transport immediately with ALS.",
+w:"Incorrect. DO NOT examine the throat in suspected epiglottitis. This is a hard rule with no exceptions in the prehospital setting. Agitation or stimulation of the inflamed epiglottis can trigger complete airway obstruction and death. Transport immediately in the child's position of comfort."}},
+{type:"mc",label:"Transport Approach",q:"The child's SpO₂ is 92% and decreasing. She is most comfortable on her mother's lap in the tripod position. How do you manage transport?",
+opts:["Strap her to the stretcher supine — that is the proper transport position for all patients","Allow her to remain in the position of comfort (sitting upright on mother's lap if possible), provide blow-by O₂ if she tolerates it, minimize intervention, transport immediately with ALS","Force a pediatric NRB mask onto her face for maximum O₂ delivery","Start PPV with BVM immediately since SpO₂ is 92%"],
+correct:1,
+fb:{c:"Correct. The most important principle in epiglottitis transport: minimize agitation. A crying, struggling child with epiglottitis can have complete airway obstruction. Keep her calm in her position of comfort. Blow-by O₂ (holding the mask near the face without touching) is better tolerated than a tight mask. ALS may intubate in a controlled setting — it is better to have the airway intact at the ED than to have a crashed airway in the back of an ambulance.",
+w:"Incorrect. Forcing a child with epiglottitis supine or onto a stretcher can provoke crying and complete airway obstruction. Position of comfort + blow-by O₂ + minimize all intervention + rapid ALS transport is the correct approach. Agitation is the enemy."}}
+]},
+
+// ═══ CASE 16: ACUTE PSYCHOSIS / COMMAND HALLUCINATIONS ═══
+{id:16,name:"The Man on the Balcony",
+dispatch:"UNIT 7 — Respond to 301 Summit Tower, 8th floor. 31-year-old male, neighbor called after hearing shouting. Subject is on the balcony, appeared to be yelling at people 'who weren't there' and was seen looking over the edge. Police en route, ETA 6 minutes. You arrive first. ETA: 3 min.",
+vitals:[{l:"HR",v:"104",s:"v-warn"},{l:"BP",v:"148/92",s:"v-warn"},{l:"SpO₂",v:"98%",s:"v-ok"},{l:"RR",v:"20",s:"v-ok"},{l:"BGL",v:"88",s:"v-ok"}],
+steps:[
+{type:"fr",label:"Scene Safety First",q:"You arrive before police. The patient is on the 8th-floor balcony, actively hallucinating and appearing agitated. Describe your scene safety decision-making process — do you approach the patient alone, wait for police, or take some middle approach? Justify your answer using EMS principles.",
+keyPoints:["wait for police","scene safety first","EMT safety priority","do not approach alone psychotic patient near ledge","risk assessment","cover and contact","stage nearby","maintain visual contact","do not leave","gather information from distance","call for backup","cannot help if injured"],
+gradingNote:"Full credit: DO NOT approach alone. Scene is not safe — patient is acutely psychotic near an 8th floor balcony with unknown command hallucinations. Wait for police backup (EMS safety principle: you cannot help anyone if you are harmed). Stage nearby where you can maintain visual contact without approaching. Gather information from distance — neighbor, look at scene. Call dispatch for ETA on police and request any additional units. Document your arrival time vs. police arrival. The decision to wait is clinically and legally correct."},
+{type:"mc",label:"De-escalation Approach",q:"Police arrive and the patient is brought inside. He is frightened, disorganized, and responding to internal stimuli (talking to voices). You need to assess him. Which communication approach is most effective?",
+opts:["Speak loudly and clearly with short commands to cut through his confusion — volume = clarity","Speak calmly and slowly, use his name if known, maintain non-threatening posture, validate his emotional state without reinforcing hallucinations, minimize environmental stimuli (turn off TV, ask others to leave)","Ignore his psychiatric symptoms and focus only on vital signs","Challenge his hallucinations directly — 'there's nobody there' — to help reorient him"],
+correct:1,
+fb:{c:"Correct. De-escalation for acute psychosis: (1) Calm, slow voice — matches your affect to create safety, (2) Use the patient's name — personalizes and grounds, (3) Non-threatening posture — sit at eye level, open hands, no sudden moves, (4) Validate emotion WITHOUT reinforcing delusions ('I can see you're frightened — I'm here to help you' not 'the people you're seeing aren't real'), (5) Reduce stimuli — fewer people, quieter environment. Challenging hallucinations directly increases agitation and defensiveness.",
+w:"Incorrect. Challenging hallucinations ('they're not real') worsens agitation and damages rapport. Loud commands increase fear in a paranoid patient. De-escalation: calm voice, his name, non-threatening posture, validate emotions without reinforcing delusions, reduce environmental stimulation."}},
+{type:"mc",label:"Medical Causes of Psychosis",q:"Before assuming this is purely psychiatric, which medical conditions must you screen for that can cause acute psychosis?",
+opts:["Medical causes of psychosis are rare and can be addressed after psychiatric evaluation","Hypoglycemia, hypoxia, drug intoxication/withdrawal, infections (encephalitis, meningitis, sepsis), thyroid storm, hypertensive encephalopathy, head trauma — all must be screened with vitals and BGL before attributing to psychiatric illness","Only illicit drug use causes acute-onset psychosis in young adults","Psychiatric psychosis always has a longer history — acute onset is always medical"],
+correct:1,
+fb:{c:"Correct. 'Medical first' is the principle. Never assume psychiatric cause without ruling out medical mimics. Must screen: BGL (hypoglycemia causes psychosis), vital signs (fever = encephalitis/meningitis, hypertension = encephalopathy), SpO₂ (hypoxia), drug intoxication or withdrawal, and recent head trauma. This patient's BGL is 88 and vitals are relatively normal — but the systematic screen must happen. A patient with 'known psychiatric history' can still be having a medical emergency.",
+w:"Incorrect. Acute psychosis has many medical causes that can be fatal if missed: hypoglycemia, hypoxia, drug toxicity, encephalitis, sepsis, hypertensive encephalopathy, head trauma. Always obtain vitals and BGL before attributing to psychiatric illness. 'Known psych history' does not mean the current episode is psychiatric."}},
+{type:"fr",label:"Involuntary Transport",q:"The patient refuses transport, saying 'I'm fine, you can go.' He is clearly still responding to internal stimuli and was seen looking over a balcony edge. Explain the legal and ethical framework for transporting him against his will — include the concept of capacity, danger to self criteria, and your documentation obligations.",
+keyPoints:["capacity","decision making capacity","informed refusal requires capacity","danger to self","5150 Baker Act","police hold","psychiatric emergency","altered capacity","cannot refuse if lacks capacity","document behavior observed","objective","law enforcement authority","EMT cannot hold involuntarily alone without police","document everything","PCR","psychiatric emergency"],
+gradingNote:"Full credit: Capacity requires understanding situation + understanding consequences + rational decision-making. Patient actively hallucinating lacks capacity. Additionally, observed behavior near balcony edge = danger to self. In most states: law enforcement can place a psychiatric hold (5150 in CA, Baker Act in FL) for 72-hour evaluation without patient consent. EMTs alone typically cannot involuntarily transport — police authority is needed. Document EXACTLY what you observed: 'Patient was observed looking over balcony railing by neighbor, patient is currently responding to internal stimuli, unable to demonstrate decision-making capacity.' Objective language only."}
+]},
+
+// ═══ CASE 17: ANAPHYLAXIS — ATYPICAL PRESENTATION ═══
+{id:17,name:"The Dinner Party",
+dispatch:"UNIT 7 — Respond to 19 Cedar Ridge Way. 44-year-old male, wife called. He ate shellfish at dinner 20 minutes ago — he 'never had a problem with it before.' Now he has severe abdominal cramping, sudden low back pain, and feels like he might pass out. No visible rash. No obvious wheezing. ETA: 4 min.",
+vitals:[{l:"HR",v:"128",s:"v-alert"},{l:"BP",v:"82/50",s:"v-alert"},{l:"SpO₂",v:"96%",s:"v-ok"},{l:"RR",v:"22",s:"v-warn"},{l:"BGL",v:"104",s:"v-ok"}],
+steps:[
+{type:"fr",label:"Atypical Anaphylaxis",q:"This patient has NO visible rash, NO wheezing, and NO throat tightening — yet is in hemodynamic shock 20 minutes after shellfish exposure. Explain how anaphylaxis can present WITHOUT the classic skin and respiratory findings, what is physiologically happening to cause his BP of 82/50, and how you confirm anaphylaxis as the diagnosis.",
+keyPoints:["anaphylaxis without urticaria","cardiovascular anaphylaxis","massive vasodilation","histamine","distributive shock","no rash required","20% without skin findings","food allergen","IgE mediated","mast cells","BP 82","food trigger","prior sensitization","epinephrine indicated","mucosal swelling GI cramping","two organ systems"],
+gradingNote:"Full credit: Anaphylaxis can present with predominantly cardiovascular collapse and minimal/absent skin findings (estimated 20% of fatal anaphylaxis cases). Mechanism: IgE-mediated mast cell degranulation → massive histamine/mediator release → profound vasodilation + increased capillary permeability → distributive shock with hypotension. GI involvement (cramping) = one system; cardiovascular (BP 82, tachycardia, near-syncope) = another system. Exposure to known allergen + two or more body systems involved = anaphylaxis by clinical criteria. Treat as anaphylaxis."},
+{type:"mc",label:"Epinephrine Decision",q:"Without visible urticaria or angioedema, your partner hesitates to give epinephrine. You say:",
+opts:["Agree — epinephrine is only indicated when there is visible skin involvement","Anaphylaxis criteria are met: shellfish exposure + hemodynamic collapse + GI involvement = two or more organ systems affected by allergen exposure; administer epinephrine 1:1,000 IM immediately regardless of skin findings","Wait for an antihistamine trial first — if the BP improves, it was anaphylaxis","Check for a known allergy list before giving epinephrine"],
+correct:1,
+fb:{c:"Correct. Anaphylaxis diagnostic criteria do NOT require skin findings. The Sampson criteria: exposure to likely allergen PLUS two or more systems involved OR hypotension alone after known allergen exposure. This patient has: known allergen (shellfish) + GI (cramping) + cardiovascular (BP 82, near-syncope) = anaphylaxis. Epinephrine 1:1,000 IM to the lateral thigh is the treatment. Every minute without epinephrine in hemodynamic anaphylaxis increases mortality.",
+w:"Incorrect. Skin findings are NOT required for anaphylaxis diagnosis. Hemodynamic collapse after allergen exposure meets criteria alone. Antihistamines are adjuncts — NOT primary treatment. Epinephrine is the only first-line drug. Delay kills."}},
+{type:"mc",label:"Epinephrine Site and Dose",q:"You decide to administer epinephrine. Which is CORRECT?",
+opts:["Epinephrine 1:10,000 IV — higher concentration for severe anaphylaxis","Epinephrine 1:1,000, 0.3–0.5mg IM to the lateral thigh — fastest absorption, safest site for EMT administration","Epinephrine 1:1,000 subcutaneous to the deltoid — traditional administration route","Epinephrine 0.1mg IV push — small dose to start"],
+correct:1,
+fb:{c:"Correct. Epinephrine 1:1,000, 0.3mg (adult) IM to the LATERAL thigh (vastus lateralis) is the correct prehospital administration. Lateral thigh has excellent blood flow and thicker muscle for reliable absorption — faster than deltoid and safer than IV for EMT-level. 1:10,000 is the IV concentration used by ALS. Subcutaneous is absorbed more slowly — now discouraged. Auto-injectors (EpiPens) use the same concentration and are designed for lateral thigh delivery.",
+w:"Incorrect. The correct EMT epinephrine is: 1:1,000 concentration, 0.3mg adult dose, IM to the lateral thigh. Lateral thigh has superior blood flow compared to deltoid. 1:10,000 is the IV formulation — ALS use only. Subcutaneous absorption is too slow for anaphylaxis."}},
+{type:"mc",label:"Biphasic Reaction",q:"After IM epinephrine, O₂, and supine positioning, his BP recovers to 98/68 and he feels 'much better.' He refuses transport, saying he is clearly fine now. What is your most important clinical concern?",
+opts:["He has responded to treatment — document and allow him to sign a refusal","Biphasic anaphylaxis — a second wave of anaphylaxis can occur 1–72 hours after initial treatment even without additional allergen exposure; the allergen is still being absorbed from his GI tract; he requires hospital observation","Repeat epinephrine is needed — one dose is never sufficient in anaphylaxis","He should see his allergist tomorrow — transport is not urgent"],
+correct:1,
+fb:{c:"Correct. Biphasic anaphylaxis occurs in up to 20% of cases — a second reaction hours after apparent recovery, without additional allergen exposure. The shellfish is still being digested and absorbed — ongoing allergen exposure from his GI tract. Additionally, epinephrine's duration (30–90 minutes) is shorter than the allergen's effect. He MUST be transported for observation, IV access, and steroid/antihistamine treatment. Clearly document the risks you explained and any signed refusal if he ultimately refuses.",
+w:"Incorrect. Improvement after epinephrine does NOT mean the emergency is over. Biphasic anaphylaxis can occur 1–72 hours later. The allergen is still being absorbed from the GI tract. Epinephrine's half-life is shorter than the reaction window. All anaphylaxis patients require hospital observation — explain this clearly and document your explanation."}}
+]},
+
+// ═══ CASE 18: CRUSH SYNDROME ═══
+{id:18,name:"The Construction Site",
+dispatch:"UNIT 7 — Respond to 880 Commerce Way, active construction site. 38-year-old male, concrete slab fell and has been trapping his right leg for approximately 45 minutes. Fire department on scene actively extricating. Patient is conscious and talking. ETA: 5 min.",
+vitals:[{l:"HR",v:"112",s:"v-warn"},{l:"BP",v:"108/72",s:"v-ok"},{l:"SpO₂",v:"97%",s:"v-ok"},{l:"RR",v:"22",s:"v-warn"},{l:"BGL",v:"98",s:"v-ok"}],
+steps:[
+{type:"fr",label:"Crush Syndrome Pathophysiology",q:"The patient has been trapped for 45 minutes. His leg will be freed in the next 5 minutes. Explain crush syndrome — what will happen physiologically in the minutes AFTER the leg is freed, why the current vital signs are misleading, and what you must have ready before extrication.",
+keyPoints:["reperfusion","myoglobin","rhabdomyolysis","hyperkalemia","cardiac arrhythmia","metabolic acidosis","acute kidney injury","renal failure","toxins released","compartment syndrome","IV fluids before extrication","sodium bicarbonate","potassium spike","vital signs deceiving during crush","post-extrication deterioration","anticipate"],
+gradingNote:"Full credit: During crush, ischemic muscle produces massive amounts of: myoglobin (blocks renal tubules → renal failure), potassium (hyperkalemia → fatal arrhythmias), lactic acid (metabolic acidosis), and cellular breakdown products. While compressed, these are trapped in the limb. Upon RELEASE, the tourniquet effect is removed and ALL of this floods systemic circulation simultaneously = reperfusion syndrome / crush syndrome. Current vitals look OK because toxins are contained. Post-extrication: life-threatening hyperkalemia (VF), myoglobinuric renal failure, hypotension. Have: IV fluids running before extrication, cardiac monitor ready, ALS on scene. This is a pre-nosocomial emergency."},
+{type:"mc",label:"Pre-Extrication Preparation",q:"What should be established BEFORE the concrete slab is removed?",
+opts:["Nothing special — extrication is the priority and treatment begins after the patient is free","IV access and fluid infusion should begin BEFORE release if possible — this dilutes the toxin bolus released from reperfusion and maintains renal perfusion; ALS should be present at extrication","Tourniquet applied to the trapped limb immediately after release","Oral hydration — give the patient water while awaiting extrication"],
+correct:1,
+fb:{c:"Correct. 'Load and go' is the instinct, but crush syndrome requires 'treat before you go.' IV saline infusion started BEFORE extrication helps dilute the incoming myoglobin, potassium, and acid load. This reduces immediate cardiac and renal toxicity. ALS should be at extrication for this reason. Start large-bore IV in unaffected extremity, run normal saline. Sodium bicarbonate may also be given to alkalinize urine and reduce myoglobin precipitation in renal tubules — ALS intervention.",
+w:"Incorrect. Pre-extrication IV hydration is critical in crush syndrome. Starting IV saline before the limb is freed dilutes the incoming toxic load (myoglobin, K⁺, acid) from reperfusion. Without pre-treatment, the patient may go into fatal hyperkalemia or renal failure within minutes of release."}},
+{type:"mc",label:"Post-Extrication Monitoring",q:"The leg is freed. The patient seems comfortable but his heart rate suddenly increases to 138 and his BP drops to 88/54 within 3 minutes. What is happening?",
+opts:["The patient is developing anxiety from the trauma of extrication","Reperfusion syndrome — the toxic contents of the crushed muscle are now in systemic circulation; tachycardia + hypotension indicates cardiovascular compromise; hyperkalemia may be precipitating arrhythmias","The IV fluids are running too fast, causing fluid overload","Delayed hemorrhagic shock from limb injury"],
+correct:1,
+fb:{c:"Correct. This is classic post-extrication reperfusion syndrome. The toxic bolus from the crushed limb hits systemic circulation: hyperkalemia can cause fatal arrhythmias (including VF), hypotension from vasodilation, and metabolic acidosis. The patient who 'looked fine' during entrapment is now in crisis. Continue aggressive fluid resuscitation, ALS management, cardiac monitoring. Hypocalcemia may also develop (calcium binds to damaged tissue). Immediate transport — no time for scene treatment beyond stabilizing the immediate threat.",
+w:"Incorrect. Tachycardia + hypotension within minutes of crush release = reperfusion syndrome. Toxic products from the ischemic muscle (myoglobin, K⁺, H⁺, intracellular contents) are now flooding circulation. This was entirely predictable — the patient can decompensate into cardiac arrest within minutes. Aggressive treatment and rapid transport."}},
+{type:"fr",label:"Wound Care — Crush Injury",q:"The freed leg is severely mangled — there is significant soft tissue damage, some bone visible, and brisk venous bleeding. Describe your wound management priorities in order, including your approach to the exposed bone.",
+keyPoints:["control bleeding","direct pressure","tourniquet if extremity","do not push bone back","moist sterile dressing over exposed bone","cover wound","immobilize","avoid excessive manipulation","no irrigation in field","splint","document wound appearance","photograph"],
+gradingNote:"Full credit sequence: (1) Control hemorrhage FIRST — direct pressure, if uncontrolled in an extremity use tourniquet (note application time), (2) Do NOT attempt to reduce exposed bone/reduce fracture in field, (3) Cover exposed bone with moist sterile dressing (dry dressings can desiccate and damage exposed tissue), (4) Cover entire wound with sterile dressings, (5) Immobilize the limb in position found (unless neurovascular compromise), (6) Document and photograph wound appearance for hospital. No wound irrigation in field."}
+]},
+
+// ═══ CASE 19: ACUTE CORONARY SYNDROME — ATYPICAL PRESENTATION ═══
+{id:19,name:"The Tired Grandmother",
+dispatch:"UNIT 7 — Respond to 412 Fern Hill Road. 71-year-old female, daughter called. Patient has had 'indigestion' and jaw pain for 3 hours, has been more tired than usual for 2 days, and had one episode of nausea and vomiting. No reported chest pain. History of Type 2 diabetes. ETA: 5 min.",
+vitals:[{l:"HR",v:"88",s:"v-ok"},{l:"BP",v:"138/86",s:"v-warn"},{l:"SpO₂",v:"95%",s:"v-warn"},{l:"RR",v:"20",s:"v-ok"},{l:"BGL",v:"186",s:"v-warn"}],
+steps:[
+{type:"fr",label:"Atypical AMI",q:"This patient has NO chest pain. Explain why diabetic patients and elderly women frequently present with 'atypical' AMI symptoms, list all of this patient's symptoms that suggest AMI despite no chest pain, and explain why diabetic autonomic neuropathy is relevant.",
+keyPoints:["atypical presentation","diabetic neuropathy","autonomic neuropathy","jaw pain AMI equivalent","nausea vomiting","fatigue prodrome","women elderly","diabetic silent MI","indigestion equivalent","no chest pain","referred pain","arm pain","diaphoresis","aspirin still indicated","high suspicion"],
+gradingNote:"Full credit: Diabetic autonomic neuropathy impairs pain signaling — diabetics often have 'silent MIs' because damaged cardiac autonomic nerves don't transmit the classic ischemic chest pain signal. Elderly women also have higher rates of atypical presentation. This patient's AMI equivalents: jaw pain (referred pain from inferior MI), nausea/vomiting (vagal response to ischemia, common in inferior MI), 2-day fatigue (prodromal symptoms), 'indigestion' (epigastric AMI equivalent from inferior wall ischemia). Aspirin is still indicated if no contraindications."},
+{type:"mc",label:"Aspirin Decision",q:"No chest pain, but clinical suspicion for ACS is high. Should you administer aspirin 324mg?",
+opts:["No — aspirin is only indicated when the patient specifically reports chest pain","Yes — aspirin is indicated for suspected ACS regardless of pain location; jaw pain + nausea + fatigue after a 2-day prodrome in a diabetic elderly woman warrants aspirin if no contraindications exist","Only give aspirin if she specifically asks for it","Wait for the hospital to administer aspirin — prehospital administration has no evidence base"],
+correct:1,
+fb:{c:"Correct. Aspirin indication is based on CLINICAL SUSPICION for ACS, not on the presence of chest pain specifically. This patient's presentation — jaw pain (AMI equivalent), nausea, fatigue prodrome, diabetic elderly female — warrants aspirin if no allergy, no recent dose, and no aspirin-contraindicating condition (GI bleed, suspected dissection, bleeding disorder). Prehospital aspirin has strong evidence for reducing mortality in AMI. 324mg chewed for rapid absorption.",
+w:"Incorrect. Aspirin indication = clinical suspicion for ACS, regardless of pain location. Jaw pain, nausea, fatigue, and the patient profile (elderly diabetic woman) in this context warrants aspirin. The absence of chest pain does not eliminate ACS from your differential."}},
+{type:"mc",label:"Oxygen Therapy",q:"SpO₂ is 95%. Should you administer supplemental oxygen?",
+opts:["Yes — all cardiac patients receive O₂ regardless of SpO₂","No — current evidence shows that supplemental O₂ in ACS patients with SpO₂ ≥94% may actually worsen outcomes by causing coronary vasoconstriction and increasing oxidative stress; target SpO₂ 94–99%","Yes — O₂ always helps in cardiac emergencies","Give O₂ only if the patient is symptomatic from hypoxia"],
+correct:1,
+fb:{c:"Correct. This is a major update in ACS management. Older protocols gave O₂ to all cardiac patients. Current evidence (AVOID-2 trial, 2015 AHA guidelines): supplemental O₂ in normoxic ACS patients (SpO₂ ≥94%) is NOT beneficial and may be harmful — hyperoxia causes coronary vasoconstriction, increases reactive oxygen species, and may worsen infarct size. Target SpO₂: 94–99%. At SpO₂ 95%, do NOT give supplemental O₂. Monitor and apply O₂ if it drops below 94%.",
+w:"Incorrect. This is updated science. Routine O₂ in ACS patients with SpO₂ ≥94% is no longer recommended — it may worsen outcomes via coronary vasoconstriction and oxidative stress. Target SpO₂ 94–99%. At 95%, monitor and withhold O₂. Apply if it drops below 94%."}},
+{type:"fr",label:"STEMI Activation",q:"En route, the patient's condition worsens — her SpO₂ drops to 91%, she develops diaphoresis, and her BP drops to 102/68. She becomes pale and anxious. Describe your updated treatment steps and the exact pre-notification you give to the hospital. Include specific language in your radio call.",
+keyPoints:["O2 now indicated","NRB","aspirin if not given","supine or position of comfort","ALS intercept","notify hospital STEMI alert","age sex symptoms onset","vital signs","ETA","STEMI center","do not delay for procedures on scene","rapid transport","exact words"],
+gradingNote:"Full credit: (1) Now SpO₂ 91% → high-flow O₂ via NRB, (2) Aspirin if not yet given, (3) Supine or semi-Fowler's (patient comfort), (4) ALS intercept urgently, (5) Rapid transport, (6) Radio/pre-notification: 'Receiving, this is Unit 7 with a code 3 transport. We have a 71-year-old female with suspected STEMI — 3-hour history of jaw pain, nausea, diaphoresis, diabetic. Current vitals: HR 88, BP 102/68, SpO₂ 91% on room air, now on NRB. We have given 324mg aspirin. Requesting STEMI activation. ETA 8 minutes.' Exact language matters — 'STEMI activation' triggers the cath lab team."}
+]},
+
+// ═══ CASE 20: ECLAMPSIA ═══
+{id:20,name:"32 Weeks",
+dispatch:"UNIT 7 — Respond to 717 Magnolia Way. 29-year-old female, 32 weeks pregnant. Husband called — she had a seizure lasting about 2 minutes. Now conscious but confused. She had a prenatal appointment yesterday and was told her blood pressure was 'a little high.' ETA: 5 min.",
+vitals:[{l:"HR",v:"106",s:"v-warn"},{l:"BP",v:"172/114",s:"v-alert"},{l:"SpO₂",v:"96%",s:"v-ok"},{l:"RR",v:"22",s:"v-warn"},{l:"BGL",v:"92",s:"v-ok"}],
+steps:[
+{type:"mc",label:"Preeclampsia vs Eclampsia",q:"32-week pregnant patient, BP 172/114, recent note of elevated BP at prenatal visit, seizure. What is the diagnosis and what is the distinction between preeclampsia and eclampsia?",
+opts:["Simple febrile seizure from a pregnancy-related infection","Eclampsia — preeclampsia (hypertension + proteinuria in pregnancy ≥20 weeks) that has progressed to seizure activity; this is a life-threatening obstetric emergency","Gestational hypertension only — seizures in pregnancy are always from a separate cause","Hypoglycemia-induced seizure — check BGL immediately"],
+correct:1,
+fb:{c:"Correct. Preeclampsia = hypertension (≥140/90) + proteinuria ± end-organ damage occurring after 20 weeks of gestation. When preeclampsia progresses to seizures = eclampsia. This is one of the leading causes of maternal mortality worldwide. Risk factors: first pregnancy, multiple gestation, chronic hypertension, diabetes, prior preeclampsia. The magnesium sulfate (given IV by ALS/hospital) is the gold-standard seizure prevention and treatment in eclampsia — different from standard seizure management.",
+w:"Incorrect. The combination of hypertension in a 32-week pregnant patient + recent prenatal elevated BP + seizure = eclampsia. This is not a coincidence or separate condition. Eclampsia is preeclampsia that has progressed to seizure — a leading cause of maternal mortality. Treat urgently."}},
+{type:"fr",label:"Maternal and Fetal Concerns",q:"This patient has TWO patients — mother and fetus. Describe the specific concerns for EACH patient in eclampsia, and explain how a position change you make during transport can directly protect the fetus.",
+keyPoints:["maternal hypertension","cerebral hemorrhage","HELLP syndrome","placental abruption","fetal hypoxia","left lateral decubitus","aortocaval compression","uterus compresses IVC","left lateral reduces compression","improves maternal BP","improves fetal perfusion","32 weeks viable","preterm delivery risk","fetal distress"],
+gradingNote:"Full credit — maternal concerns: uncontrolled hypertension → intracerebral hemorrhage, HELLP syndrome (hemolysis/elevated liver enzymes/low platelets), placental abruption, renal failure, pulmonary edema. Fetal concerns: placental insufficiency from maternal hypertension → fetal hypoxia + fetal distress; preterm delivery at 32 weeks if emergent delivery needed. Left lateral decubitus position: at 32 weeks the uterus is large enough to compress the inferior vena cava when supine (aortocaval compression) → reduces maternal venous return → drops cardiac output → drops placental perfusion → fetal hypoxia. Left lateral removes this compression and can directly improve fetal perfusion."},
+{type:"mc",label:"Seizure Management in Eclampsia",q:"She has a second seizure during transport. Your management?",
+opts:["Administer oral glucose — seizures in pregnancy may be from hypoglycemia","Protect from injury, lateral position if possible, suction if vomiting occurs, high-flow O₂ post-seizure, ALS for magnesium sulfate — do NOT use standard anticonvulsants like diazepam as first-line in eclampsia","Give diazepam IM — standard seizure management applies regardless of pregnancy","Perform an emergency delivery immediately — the seizure means the fetus must be delivered now"],
+correct:1,
+fb:{c:"Correct. Eclampsia seizure management differs from standard seizure management: magnesium sulfate (MgSO₄) is the treatment of choice — it prevents recurrence and reduces maternal mortality without fetal CNS depression that benzodiazepines cause. Standard anticonvulsants can be used if MgSO₄ fails, but are not first-line. EMT role: lateral positioning, protect from injury, high-flow O₂, suction ready, ALS urgently for MgSO₄, rapid transport to OB-capable facility. BGL is appropriate to check — but this presentation is not hypoglycemia.",
+w:"Incorrect. Eclampsia seizure management is not standard. Magnesium sulfate is first-line — administered by ALS or hospital. Benzodiazepines can cause fetal CNS depression and are not first-line. Immediate delivery is a hospital decision, not a field decision. EMT: lateral position, O₂, suction ready, ALS, transport."}},
+{type:"fr",label:"Hospital Pre-Notification",q:"Write out the exact radio transmission you give to the OB hospital 7 minutes before arrival. Include every piece of information the receiving OB team needs to be prepared. Then explain WHY pre-notification specifically improves outcomes in eclampsia.",
+keyPoints:["29 year old","32 weeks pregnant","BP 172/114","seizure history","two seizures","eclampsia","no medications given","ETA 7 minutes","OB team","magnesium sulfate","airway","request team activation","fetal status unknown","maternal vital signs","ALS on scene or not","pre-notification activates team"],
+gradingNote:"Good radio call: 'Receiving, Unit 7, Code 3, ETA 7 minutes. 29-year-old female, 32 weeks gestation, suspected eclampsia. Two seizures — one 10 minutes ago, one 4 minutes ago, each approximately 2 minutes. BP 172/114, HR 106, SpO₂ 96% on O₂. GCS 13, postictal. No medications administered. Requesting OB team activation and magnesium sulfate preparation. ALS is [on scene / en route]. Copy?' Why it matters: pre-notification activates OB, neonatology (for potential preterm delivery), anesthesia (for emergent C-section), and pharmacy (magnesium sulfate must be prepared). Studies show pre-notification reduces door-to-magnesium time, which directly reduces risk of maternal intracerebral hemorrhage."}
+]
+}]; // end CASES array
+
+let ST={screen:'home',caseObj:null,stepIdx:0,answered:false,answeredCorrect:false,frFeedback:null,frScore:null,frText:'',score:0,total:0,casesDone:0,pool:[...CASES]};
+
+function render(){
+  const app=document.getElementById('app');
+  if(ST.screen==='home'){app.innerHTML=renderHome();return;}
+  if(ST.screen==='end'){app.innerHTML=renderEnd();return;}
+  app.innerHTML=renderCase();
+}
+
+function renderHome(){
+  const cards=CASES.map(c=>{
+    const frN=c.steps.filter(s=>s.type==='fr').length;
+    const mcN=c.steps.filter(s=>s.type==='mc').length;
+    return`<div class="case-tile" onclick="startCase(${c.id})">
+      <div class="ct-num">CASE ${String(c.id).padStart(2,'0')}</div>
+      <div class="ct-name">${c.name}</div>
+      <div class="ct-meta">${c.steps.length} steps · ${mcN} MC · ${frN} FR</div>
+      ${frN>0?`<div class="ct-badge">AI GRADED</div>`:''}
+    </div>`;
+  }).join('');
+  const sess=ST.total>0?`<div class="session-bar">Session score: <span style="color:var(--green)">${ST.score.toFixed(1)}/${ST.total}</span> &nbsp;·&nbsp; ${ST.casesDone} case${ST.casesDone!==1?'s':''} done</div>`:'';
+  return`<header><div class="logo"></div><div class="header-text"><h1>EMT Advanced Case Trainer</h1><p>Level III · 20 Scenarios · AI-Graded Free Response</p></div></header>
+  <div class="home-hero">
+    <h2>20 Advanced<br><span>Clinical Scenarios</span></h2>
+    <p>Harder cases. Hidden diagnoses. Multiple free response questions graded by AI in real time.<br>Work through each step the way a real call unfolds.</p>
+    <button class="btn-primary" onclick="pickRandom()">▶ RANDOM CASE</button>
+  </div>
+  <div style="font-family:'DM Mono',monospace;font-size:0.63rem;color:var(--dim2);letter-spacing:2px;text-transform:uppercase;margin-bottom:11px;">— OR SELECT A CASE —</div>
+  <div class="case-grid">${cards}</div>${sess}`;
+}
+
+function renderCase(){
+  const c=ST.caseObj;
+  const step=c.steps[ST.stepIdx];
+  const isLast=ST.stepIdx===c.steps.length-1;
+
+  const vitals=c.vitals.map(v=>`<div class="vital-chip ${v.s}"><div class="vc-lbl">${v.l}</div><div class="vc-val">${v.v}</div></div>`).join('');
+  const prog=c.steps.map((_,i)=>`<div class="prog-seg ${i<ST.stepIdx?'done':i===ST.stepIdx?'active':''}"></div>`).join('');
+  const typeTag=step.type==='fr'?`<span class="sm-type fr">FREE RESPONSE · AI GRADED</span>`:`<span class="sm-type mc">MULTIPLE CHOICE</span>`;
+
+  let qHTML='';
+  if(step.type==='mc'){
+    qHTML=`<div class="options-grid">${step.opts.map((o,i)=>{
+      let cls='';
+      if(ST.answered) cls=i===step.correct?'correct':'wrong';
+      return`<button class="opt-btn ${cls}" onclick="answerMC(${i})" ${ST.answered?'disabled':''}>${o}</button>`;
+    }).join('')}</div>`;
+  } else {
+    if(!ST.answered){
+      qHTML=`<textarea class="fr-area" id="frInput" placeholder="Write a thorough clinical answer here. The AI evaluates your reasoning, key concepts, and clinical accuracy — not exact wording." rows="6"></textarea>
+      <div class="fr-hint">💡 Include: pathophysiology, your reasoning, ordered steps, and clinical rationale where applicable.</div>
+      <button class="submit-fr-btn" id="frBtn" onclick="submitFR()">SUBMIT FOR AI GRADING</button>`;
+    } else {
+      qHTML=`<div class="fr-area" style="opacity:0.45;cursor:default;color:var(--dim2);min-height:auto;font-size:0.78rem;">${escHtml(ST.frText)}</div>`;
+    }
+  }
+
+  let fbHTML='';
+  if(ST.answered){
+    if(step.type==='mc'){
+      const cls=ST.answeredCorrect?'fb-correct':'fb-wrong';
+      const lbl=ST.answeredCorrect?'✔ Correct':'✘ Incorrect';
+      fbHTML=`<div class="feedback-box ${cls}"><strong>${lbl}</strong>${ST.answeredCorrect?step.fb.c:step.fb.w}</div>`;
+    } else {
+      if(ST.frFeedback){
+        const map={full:'fb-correct',partial:'fb-partial',low:'fb-wrong'};
+        const lmap={full:'✔ Strong Answer',partial:'◑ Partial Credit',low:'✘ Needs Review'};
+        fbHTML=`<div class="feedback-box ${map[ST.frScore]||'fb-partial'}"><strong>${lmap[ST.frScore]||'◑ Reviewed'}</strong>${ST.frFeedback}</div>`;
+      } else {
+        fbHTML=`<div class="feedback-box fb-loading"><div class="ai-dot-row"><div class="ai-dot"></div><div class="ai-dot"></div><div class="ai-dot"></div><span>AI is grading your response…</span></div></div>`;
+      }
+    }
+  }
+
+  const showNext=ST.answered&&(step.type==='mc'||ST.frFeedback);
+
+  return`<header><div class="logo"></div><div class="header-text"><h1>EMT Advanced Case Trainer</h1><p>Level III · 20 Scenarios · AI-Graded Free Response</p></div></header>
+  <div class="score-row">
+    <span>Score: <span class="score-val">${ST.score.toFixed(1)}/${ST.total}</span></span><span>·</span>
+    <span>Step ${ST.stepIdx+1}/${c.steps.length}</span><span>·</span>
+    <span style="color:var(--dim2)">Case ${c.id}: ${c.name}</span>
+    <button class="back-btn" onclick="goHome()">← CASES</button>
+  </div>
+  <div class="dispatch-box"><div class="db-label">📡 Dispatch</div><p>${c.dispatch}</p></div>
+  <div class="vitals-row">${vitals}</div>
+  <div class="progress-row">${prog}</div>
+  <div class="step-meta"><span class="sm-label">Step ${ST.stepIdx+1}: ${step.label}</span>${typeTag}</div>
+  <div class="q-card"><h2>${step.q}</h2>${qHTML}${fbHTML}${showNext?`<button class="next-btn" onclick="nextStep()">${isLast?'FINISH CASE →':'NEXT STEP →'}</button>`:''}</div>`;
+}
+
+function renderEnd(){
+  const pct=ST.total>0?Math.round((ST.score/ST.total)*100):0;
+  const grade=pct>=85?'PASS':pct>=70?'BORDERLINE':'REVIEW NEEDED';
+  const col=pct>=85?'var(--green)':pct>=70?'var(--amber)':'var(--red)';
+  return`<header><div class="logo"></div><div class="header-text"><h1>EMT Advanced Case Trainer</h1><p>Level III · 20 Scenarios</p></div></header>
+  <div class="end-card">
+    <h2>Case ${ST.caseObj.id} Complete</h2>
+    <div style="color:var(--dim2);font-family:'DM Mono',monospace;font-size:0.72rem;margin-bottom:4px;">${ST.caseObj.name}</div>
+    <div class="end-score" style="color:${col}">${pct}%</div>
+    <div class="end-grade" style="color:${col}">${grade}</div>
+    <p>Running session: <strong style="color:var(--text-bright)">${ST.score.toFixed(1)}</strong> points from <strong style="color:var(--text-bright)">${ST.total}</strong> questions &nbsp;·&nbsp; ${ST.casesDone} case${ST.casesDone!==1?'s':''} completed<br><span style="font-size:0.68rem;color:var(--dim2)">(Free response: full=1pt, partial=0.5pt, low=0pt)</span></p>
+    <div class="btn-row"><button class="btn-primary" onclick="pickRandom()">NEXT RANDOM CASE</button><button class="btn-ghost" onclick="goHome()">CASE SELECT</button></div>
+  </div>`;
+}
+
+function escHtml(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+function startCase(id){
+  ST.caseObj=CASES.find(c=>c.id===id);
+  ST.stepIdx=0;ST.answered=false;ST.answeredCorrect=false;
+  ST.frFeedback=null;ST.frScore=null;ST.frText='';ST.screen='case';
+  render();
+}
+function pickRandom(){
+  if(ST.pool.length===0) ST.pool=[...CASES];
+  const i=Math.floor(Math.random()*ST.pool.length);
+  startCase(ST.pool.splice(i,1)[0].id);
+}
+function goHome(){ST.screen='home';render();}
+
+function answerMC(idx){
+  if(ST.answered) return;
+  const step=ST.caseObj.steps[ST.stepIdx];
+  ST.answered=true;ST.answeredCorrect=idx===step.correct;
+  ST.total++;if(ST.answeredCorrect) ST.score++;
+  render();
+}
+
+async function submitFR(){
+  const el=document.getElementById('frInput');
+  if(!el) return;
+  const ans=el.value.trim();
+  if(ans.length<20){el.style.borderColor='var(--red)';el.placeholder='Please write a more complete answer before submitting.';return;}
+  ST.frText=ans;ST.answered=true;ST.frFeedback=null;ST.frScore=null;ST.total++;
+  render();
+  const step=ST.caseObj.steps[ST.stepIdx];
+  try{
+    const resp=await fetch("https://api.anthropic.com/v1/messages",{
+      method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        model:"claude-sonnet-4-20250514",max_tokens:1000,
+        messages:[{role:"user",content:`You are a strict EMT exam evaluator. Grade this free-response answer.
+
+QUESTION: ${step.q}
+
+KEY CLINICAL CONCEPTS REQUIRED: ${step.keyPoints.join(', ')}
+
+GRADING NOTES: ${step.gradingNote}
+
+STUDENT ANSWER: "${ans}"
+
+Score:
+- "full" = strong clinical understanding, covers most key points clearly
+- "partial" = some correct concepts, missing important elements or reasoning
+- "low" = largely incorrect, vague, dangerous omissions, or too brief
+
+Reply ONLY with valid JSON (no markdown, no extra text):
+{"score":"full|partial|low","feedback":"2-4 sentences: what was correct, what was missing, one teaching point."}`}]
+      })
+    });
+    const data=await resp.json();
+    const raw=data.content.map(b=>b.text||'').join('').trim().replace(/```json|```/g,'').trim();
+    const parsed=JSON.parse(raw);
+    ST.frScore=parsed.score;ST.frFeedback=parsed.feedback;
+    if(parsed.score==='full') ST.score+=1;
+    else if(parsed.score==='partial') ST.score+=0.5;
+  } catch(e){
+    ST.frScore='partial';ST.score+=0.5;
+    ST.frFeedback=`Response received. (Auto-grader temporarily unavailable.) Key concepts to self-check: ${step.keyPoints.slice(0,6).join(', ')}.`;
+  }
+  render();
+}
+
+function nextStep(){
+  const c=ST.caseObj;
+  if(ST.stepIdx<c.steps.length-1){
+    ST.stepIdx++;ST.answered=false;ST.answeredCorrect=false;
+    ST.frFeedback=null;ST.frScore=null;ST.frText='';
+    render();
+  } else {ST.casesDone++;ST.screen='end';render();}
+}
+
+
+// Shuffle MC options at runtime so correct answer isn't always position B
+function shuffleMCOptions(){
+  CASES.forEach(function(c){
+    c.steps.forEach(function(step){
+      if(step.type!=='mc') return;
+      var correctText=step.opts[step.correct];
+      for(var i=step.opts.length-1;i>0;i--){
+        var j=Math.floor(Math.random()*(i+1));
+        var tmp=step.opts[i];step.opts[i]=step.opts[j];step.opts[j]=tmp;
+      }
+      step.correct=step.opts.indexOf(correctText);
+    });
+  });
+}
+shuffleMCOptions();
+
+render();
+
+
+</script>
+</body>
+</html>
