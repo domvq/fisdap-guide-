@@ -15,6 +15,14 @@
   --rose:#f43f5e;--rose-dim:rgba(244,63,94,0.1);
   --cyan:#06b6d4;--cyan-dim:rgba(6,182,212,0.1);
   --indigo:#6366f1;--indigo-dim:rgba(99,102,241,0.1);
+  --orange:#f97316;--orange-dim:rgba(249,115,22,0.1);
+  --emerald:#059669;--emerald-dim:rgba(5,150,105,0.1);
+  --violet:#8b5cf6;--violet-dim:rgba(139,92,246,0.1);
+  --pink:#ec4899;--pink-dim:rgba(236,72,153,0.1);
+  --yellow:#eab308;--yellow-dim:rgba(234,179,8,0.1);
+  --sky:#0ea5e9;--sky-dim:rgba(14,165,233,0.1);
+  --lime:#84cc16;--lime-dim:rgba(132,204,22,0.1);
+  --fuchsia:#d946ef;--fuchsia-dim:rgba(217,70,239,0.1);
   --text:#94a3b8;--text-bright:#e2e8f0;--dim:#334155;--dim2:#475569;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
@@ -253,6 +261,322 @@ const CASES=[
     keyPoints:["hypoxic arrest","primary hypoxia","oxygen depletion","ventilation priority","cardiac arrest secondary","5 rescue breaths","compression-to-ventilation ratio","airway first","oxygenation primary","unlike VF cardiac","compression-only less effective","O2 deficit"],
     gradingNote:"Full credit: drowning = hypoxic arrest (primary asphyxia / lack of O₂ causes the heart to stop). In primary cardiac arrest, blood is oxygenated initially; in drowning, blood is profoundly deoxygenated before arrest. Priority = ventilation and oxygenation FIRST (e.g., initial rescue breaths / BVM) before or balanced with compressions. Compression-only CPR is inadequate for drowning because the primary insult is respiratory/hypoxic."}
   ]
+},
+
+// ═══ CASE 6: STATUS EPILEPTICUS ═══
+{
+  id:6,
+  name:"Status Epilepticus",
+  subtitle:"Oak Street &bull; Neurological Emergency",
+  color:"var(--indigo)",
+  dimColor:"var(--indigo-dim)",
+  dispatch:"UNIT 7 — Respond to 812 Oak Street. 34-year-old female experiencing continuous generalized tonic-clonic seizure activity for 14 minutes. Bystanders state no prior history of epilepsy. ETA: 4 min.",
+  vitals:[{l:"HR",v:"148",s:"v-alert"},{l:"BP",v:"160/95",s:"v-warn"},{l:"SpO₂",v:"82%",s:"v-alert"},{l:"RR",v:"12",s:"v-warn"},{l:"GCS",v:"3",s:"v-alert"}],
+  steps:[
+    {type:"mc",label:"Airway & Oxygenation",q:"Patient is actively seizing with cyanosis around the lips and SpO₂ at 82%. What is your immediate airway management priority?",
+    opts:["Force a rigid OPA between clenched teeth immediately","Administer high-flow oxygen via non-rebreather mask or assist ventilations with BVM as tolerated; do not force objects between teeth","Insert a nasopharyngeal airway (NPA) forcefully during active clonic spasms","Wait for the seizure to stop spontaneously before applying oxygen"],
+    correct:1,
+    fb:{c:"Correct. Never force objects or airways into the mouth of a seizing patient (risk of dental trauma and airway obstruction). Provide high-flow O₂ and use an NPA if tolerated once clonic activity subsides, assisting ventilations as needed.",
+    w:"Incorrect. Forcing items into clenched teeth during a seizure causes severe oral trauma. Prioritize oxygenation and ventilation support without causing mechanical injury."}},
+    {type:"fr",label:"Status Epilepticus Definition",q:"Define status epilepticus by time duration and explain why prolonged seizure activity causes permanent neuronal injury.",
+    keyPoints:["greater than 5 minutes","continuous seizure","excitotoxicity","glucose depletion","metabolic exhaustion","hypoxia","brain damage"],
+    gradingNote:"Full credit: Status epilepticus is defined as continuous seizure activity lasting longer than 5 minutes (or recurrent seizures without recovery). Prolonged activity causes excitotoxicity (massive glutamate release), extreme metabolic demand exceeding supply, hypoxia, and permanent neuronal death."}
+  ]
+},
+
+// ═══ CASE 7: ANAPHYLACTIC SHOCK ═══
+{
+  id:7,
+  name:"Anaphylactic Shock",
+  subtitle:"Community Park &bull; Immunological Emergency",
+  color:"var(--orange)",
+  dimColor:"var(--orange-dim)",
+  dispatch:"UNIT 7 — Respond to Community Park pavilion. 28-year-old female stung by multiple yellow jackets while eating lunch. Developed rapid facial swelling, widespread urticaria, stridor, and wheezing. ETA: 5 min.",
+  vitals:[{l:"HR",v:"138",s:"v-alert"},{l:"BP",v:"76/44",s:"v-alert"},{l:"SpO₂",v:"86%",s:"v-alert"},{l:"RR",v:"32",s:"v-alert"},{l:"GCS",v:"14",s:"v-warn"}],
+  steps:[
+    {type:"mc",label:"First-Line Intervention",q:"Patient exhibits severe respiratory distress with stridor and profound hypotension (76/44). What is the definitive first-line medication treatment?",
+    opts:["Diphenhydramine (Benadryl) IV push","Epinephrine 1:1,000 IM","Albuterol nebulizer only","Normal saline fluid bolus alone"],
+    correct:1,
+    fb:{c:"Correct. Epinephrine is the absolute first-line treatment for anaphylaxis. It causes vasoconstriction (reversing shock), bronchodilation (relieving bronchospasm), and stabilizes mast cells to halt histamine release.",
+    w:"Incorrect. Antihistamines are secondary adjuncts. Epinephrine IM is life-saving and must be administered immediately for systemic anaphylaxis with airway involvement or hypotension."}},
+    {type:"fr",label:"Pathophysiology of Anaphylaxis",q:"Explain the pathophysiological mechanisms responsible for the simultaneous development of airway stridor/wheezing and profound hypotension in severe anaphylaxis.",
+    keyPoints:["mast cell degranulation","histamine release","bronchospasm","laryngeal edema","vasodilation","capillary leak","distribution shock"],
+    gradingNote:"Full credit: IgE-mediated mast cell degranulation releases massive histamine and inflammatory mediators. This causes smooth muscle contraction in bronchioles (wheezing) and laryngeal mucosal edema (stridor), combined with systemic vasodilation and capillary permeability leading to distributive shock (hypotension)."}
+  ]
+},
+
+// ═══ CASE 8: ACUTE MYOCARDIAL INFARCTION ═══
+{
+  id:8,
+  name:"Acute Myocardial Infarction",
+  subtitle:"Industrial Pkwy &bull; Cardiac Emergency",
+  color:"var(--emerald)",
+  dimColor:"var(--emerald-dim)",
+  dispatch:"UNIT 7 — Respond to 304 Industrial Pkwy. 56-year-old male complaining of crushing substernal chest pressure radiating to his jaw and left arm, accompanied by diaphoresis and nausea. Onset 45 minutes ago. ETA: 5 min.",
+  vitals:[{l:"HR",v:"112",s:"v-warn"},{l:"BP",v:"142/88",s:"v-warn"},{l:"SpO₂",v:"96%",s:"v-ok"},{l:"RR",v:"20",s:"v-ok"},{l:"12-Lead",v:"STEMI II, III, aVF",s:"v-alert"}],
+  steps:[
+    {type:"mc",label:"12-Lead Interpretation",q:"Your 12-lead ECG reveals ST-segment elevation in leads II, III, and aVF. Which coronary artery territory is affected and which myocardial wall is involved?",
+    opts:["Left Anterior Descending (LAD) — Anterior wall","Right Coronary Artery (RCA) — Inferior wall","Left Circumflex (LCx) — Lateral wall","Posterior Descending Artery — Right ventricular wall"],
+    correct:1,
+    fb:{c:"Correct. Leads II, III, and aVF view the inferior wall of the left ventricle, which is typically supplied by the Right Coronary Artery (RCA). Inferior STEMIs also warrant right-sided ECG leads to rule out RV infarction.",
+    w:"Incorrect. Leads II, III, and aVF correspond to the inferior wall of the heart, supplied by the RCA."}},
+    {type:"fr",label:"Prehospital STEMI Management",q:"Outline the standard prehospital treatment bundle for a confirmed STEMI patient, including medications, contraindications, and destination protocol.",
+    keyPoints:["aspirin","nitroglycerin","oxygen if SpO2 low","12-lead transmission","PCI center","contraindications for NTG","right ventricular infarct"],
+    gradingNote:"Full credit: Aspirin (unless allergic/contraindicated), 12-lead transmission to receiving facility, cautious NTG (contraindicated if systolic BP <90 or suspected RV infarct), pain management, and direct transport to a PCI-capable facility (Percutaneous Coronary Intervention)."}
+  ]
+},
+
+// ═══ CASE 9: DIABETIC KETOACIDOSIS ═══
+{
+  id:9,
+  name:"Diabetic Ketoacidosis",
+  subtitle:"Maple Street &bull; Endocrine Emergency",
+  color:"var(--violet)",
+  dimColor:"var(--violet-dim)",
+  dispatch:"UNIT 7 — Respond to 192 Maple Street. 21-year-old female with Type 1 diabetes. Vomiting for 2 days, lethargic, rapid deep breathing, and fruity odor on breath. Blood glucose meter reads 'HIGH' (>600 mg/dL). ETA: 6 min.",
+  vitals:[{l:"HR",v:"128",s:"v-alert"},{l:"BP",v:"104/68",s:"v-warn"},{l:"SpO₂",v:"98%",s:"v-ok"},{l:"RR",v:"38",s:"v-alert"},{l:"BGL",v:"640",s:"v-alert"}],
+  steps:[
+    {type:"mc",label:"Respiratory Compensation",q:"The patient is breathing deeply and rapidly at 38 breaths/min. What is the clinical term for this breathing pattern and what physiological process does it represent?",
+    opts:["Cheyne-Stokes respiration — compensatory mechanism for cerebral edema","Kussmaul breathing — respiratory compensation for metabolic acidosis","Biot's respiration — brainstem respiratory depression","Apneustic breathing — pontine stroke manifestation"],
+    correct:1,
+    fb:{c:"Correct. Kussmaul respirations are deep, rapid breaths driven by the respiratory center attempting to blow off carbon dioxide (acid) to compensate for severe ketoacidosis.",
+    w:"Incorrect. Kussmaul breathing is the classic respiratory compensation pattern for severe metabolic acidosis seen in DKA."}},
+    {type:"fr",label:"DKA Pathophysiology",q:"Explain the absence of insulin in Type 1 diabetes and how it leads to lipolysis, ketone body formation, and severe dehydration.",
+    keyPoints:["absolute insulin deficiency","lipolysis","free fatty acids","ketones","acetoacetate","beta-hydroxybutyrate","osmotic diuresis","dehydration"],
+    gradingNote:"Full credit: Absolute insulin lack forces cells into starvation mode. The body breaks down adipose tissue (lipolysis), flooding the liver with free fatty acids which are converted into acidic ketone bodies. Hyperglycemia causes overwhelming osmotic diuresis, resulting in severe total body water and electrolyte depletion."}
+  ]
+},
+
+// ═══ CASE 10: OPIOID OVERDOSE ═══
+{
+  id:10,
+  name:"Opioid Overdose",
+  subtitle:"Metro Transit Station &bull; Toxicological Emergency",
+  color:"var(--pink)",
+  dimColor:"var(--pink-dim)",
+  dispatch:"UNIT 7 — Respond to Metro Transit Platform 2. 25-year-old male found unresponsive on bench. Pinpoint pupils, severely depressed respirations at 4 breaths/min, cyanotic nail beds. Bystanders report suspected heroin use. ETA: 3 min.",
+  vitals:[{l:"HR",v:"58",s:"v-ok"},{l:"BP",v:"90/60",s:"v-warn"},{l:"SpO₂",v:"74%",s:"v-alert"},{l:"RR",v:"4",s:"v-alert"},{l:"GCS",v:"4",s:"v-alert"}],
+  steps:[
+    {type:"mc",label:"Immediate Resuscitation Priority",q:"Patient is unresponsive with an RR of 4 and SpO₂ of 74%. What is your absolute immediate priority before administering naloxone?",
+    opts:["Intubate immediately in the field","Assist ventilations with BVM and high-flow oxygen","Check blood glucose level","Perform 12-lead ECG"],
+    correct:1,
+    fb:{c:"Correct. Hypoxia kills faster than opioid toxicity. Opening the airway and providing immediate assisted ventilation via BVM with supplemental oxygen takes precedence over naloxone administration.",
+    w:"Incorrect. Ventilation and oxygenation take absolute priority. Reversing hypoxia prevents cardiac arrest while naloxone begins to take effect."}},
+    {type:"fr",label:"Naloxone Administration & Titration",q:"Describe the mechanism of action of naloxone, appropriate titration strategy in prehospital care, and potential risks of aggressive administration.",
+    keyPoints:["opioid receptor antagonist","competitive binding","titrate to ventilation","avoid abrupt withdrawal","acute pulmonary edema","combative behavior","withdrawal symptoms"],
+    gradingNote:"Full credit: Naloxone is a competitive opioid antagonist at mu receptors. Titrate to restore adequate spontaneous ventilation rather than full alertness to avoid precipitating severe acute withdrawal, agitation, vomiting, and pulmonary edema."}
+  ]
+},
+
+// ═══ CASE 11: ACUTE ASTHMA EXACERBATION ═══
+{
+  id:11,
+  name:"Acute Asthma Exacerbation",
+  subtitle:"University Library &bull; Respiratory Emergency",
+  color:"var(--yellow)",
+  dimColor:"var(--yellow-dim)",
+  dispatch:"UNIT 7 — Respond to University Library, 3rd floor. 22-year-old female with severe asthma attack. Speaks in single words,tripod positioning, bilateral expiratory and inspiratory wheezing diminishing to silent chest. ETA: 4 min.",
+  vitals:[{l:"HR",v:"132",s:"v-alert"},{l:"BP",v:"130/84",s:"v-warn"},{l:"SpO₂",v:"88%",s:"v-alert"},{l:"RR",v:"38",s:"v-alert"},{l:"PEF",v:"<40%",s:"v-alert"}],
+  steps:[
+    {type:"mc",label:"Silent Chest Assessment",q:"You note that the patient's previously loud wheezing has suddenly become a 'silent chest' with minimal air movement. What does this sign indicate?",
+    opts:["Immediate clinical improvement and bronchodilation","Severe impending respiratory failure and exhaustion","Resolution of bronchospasm","Normal progression of asthma recovery"],
+    correct:1,
+    fb:{c:"Correct. A 'silent chest' in a severe asthma attack is an ominous sign indicating extreme exhaustion, zero air movement, and imminent respiratory arrest. Immediate aggressive ventilation support and epinephrine may be required.",
+    w:"Incorrect. A silent chest does not mean improvement — it means airflow has dropped to nearly zero due to exhaustion and severe bronchospasm. It is a critical emergency."}},
+    {type:"fr",label:"Pathophysiology & Management",q:"Explain the triad of pathological changes in acute asthma and outline prehospital treatment steps.",
+    keyPoints:["bronchospasm","mucus hypersecretion","mucosal edema","beta-2 agonists","ipratropium","corticosteroids","epinephrine","BVM support"],
+    gradingNote:"Full credit: Triad = bronchospasm, mucosal edema, and thick mucus plugging. Prehospital treatment includes high-flow oxygen, nebulized beta-2 agonists (albuterol) and anticholinergics (ipratropium), IV access, systemic steroids, and prepared advanced airway/ventilation support."}
+  ]
+},
+
+// ═══ CASE 12: HYPOTHERMIA ═══
+{
+  id:12,
+  name:"Severe Hypothermia",
+  subtitle:"Pine Ridge Trail &bull; Environmental Emergency",
+  color:"var(--sky)",
+  dimColor:"var(--sky-dim)",
+  dispatch:"UNIT 7 — Respond to Pine Ridge Trailhead. 50-year-old male hiker found unresponsive in snow. Core body temperature estimated below 82°F (28°C). Bradycardic, slow respirations, stiff musculature. ETA: 8 min.",
+  vitals:[{l:"HR",v:"36",s:"v-alert"},{l:"BP",v:"80/50",s:"v-alert"},{l:"SpO₂",v:"Unreliable",s:"v-alert"},{l:"RR",v:"6",s:"v-alert"},{l:"Temp",v:"79.5°F",s:"v-alert"}],
+  steps:[
+    {type:"mc",label:"Handling Precautions",q:"When lifting and moving a severely hypothermic patient into the ambulance, which precaution is critical?",
+    opts:["Perform vigorous chest physiotherapy and massage limbs to restore circulation","Handle extremely gently and maintain horizontal position — rough movement can trigger ventricular fibrillation","Apply immediate high-heat electric heating pads directly to skin","Place patient in Trendelenburg position"],
+    correct:1,
+    fb:{c:"Correct. Severely hypothermic myocardium is extremely irritable. Rough movement or shaking can easily precipitate fatal ventricular fibrillation (commonly known as 'heaver's arrest').",
+    w:"Incorrect. Rough handling of a severely hypothermic patient can trigger lethal ventricular fibrillation. Move gently and keep horizontal."}},
+    {type:"fr",label:"Resuscitation Rule",q:"Explain the famous EMS maxim regarding hypothermic cardiac arrest: 'You are not dead until you are warm and dead.' Detail the physiological rationale behind this rule.",
+    keyPoints:["metabolic rate decreased","oxygen demand minimal","cold myocardial protection","prolonged resuscitation","warmth required before pronouncement"],
+    gradingNote:"Full credit: Profound hypothermia drastically lowers cellular metabolism and oxygen consumption, protecting the brain and heart from ischemic injury. Patients in hypothermic arrest can be successfully resuscitated after prolonged downtime once core rewarming is achieved. Standard resuscitation rules do not apply until warm."}
+  ]
+},
+
+// ═══ CASE 13: STROKE / CVA ═══
+{
+  id:13,
+  name:"Acute Stroke (CVA)",
+  subtitle:"Main Street Cafe &bull; Neurological Emergency",
+  color:"var(--lime)",
+  dimColor:"var(--lime-dim)",
+  dispatch:"UNIT 7 — Respond to Main Street Cafe. 72-year-old male patron experienced sudden onset facial droop, slurred speech, and left-sided arm weakness while eating breakfast 35 minutes ago. ETA: 4 min.",
+  vitals:[{l:"HR",v:"88",s:"v-ok"},{l:"BP",v:"172/96",s:"v-warn"},{l:"SpO₂",v:"98%",s:"v-ok"},{l:"RR",v:"16",s:"v-ok"},{l:"BGL",v:"118",s:"v-ok"}],
+  steps:[
+    {type:"mc",label:"Stroke Assessment Scale",q:"You perform a prehospital stroke scale evaluation. Which finding is part of the Cincinnati Prehospital Stroke Scale (CPSS)?",
+    opts:["Grip strength bilaterally, hearing acuity, and deep tendon reflexes","Facial droop, arm drift, and abnormal speech","Visual field cut, gait ataxia, and finger-to-nose coordination","Level of consciousness, pupillary light reflex, and swallow test"],
+    correct:1,
+    fb:{c:"Correct. The CPSS evaluates three simple items: Facial Droop (smile/show teeth), Arm Drift (close eyes and hold arms out for 10 seconds), and Speech (repeat a simple sentence). Any single abnormal finding indicates a high probability of stroke.",
+    w:"Incorrect. The CPSS focuses on Facial Droop, Arm Drift, and Abnormal Speech."}},
+    {type:"fr",label:"Stroke Protocol & Time Window",q:"Why is establishing the exact 'last known well' (LKW) time critical in prehospital stroke management? Include discussion of ischemic vs hemorrhagic differentiation.",
+    keyPoints:["last known well","thrombolytic window","rt-PA","mechanical thrombectomy","CT scan rule out hemorrhage","ischemic vs hemorrhagic"],
+    gradingNote:"Full credit: LKW determines eligibility for acute reperfusion therapies (IV thrombolytics like rt-PA within 3.5–4.5 hours and mechanical thrombectomy up to 24 hours). Prehospital providers must rapidly transport to a designated Stroke Center while providing blood glucose check to rule out hypoglycemia mimicking stroke."}
+  ]
+},
+
+// ═══ CASE 14: FLUID OVERLOAD / CHF ═══
+{
+  id:14,
+  name:"Acute CHF Exacerbation",
+  subtitle:"Oakridge Apartments &bull; Cardiopulmonary Emergency",
+  color:"var(--fuchsia)",
+  dimColor:"var(--fuchsia-dim)",
+  dispatch:"UNIT 7 — Respond to Oakridge Apartments, Apt 3B. 74-year-old female with history of CHF complaining of severe acute dyspnea, orthopnea, and pink, frothy sputum. Accessory muscle use noted. ETA: 5 min.",
+  vitals:[{l:"HR",v:"116",s:"v-warn"},{l:"BP",v:"190/102",s:"v-alert"},{l:"SpO₂",v:"84%",s:"v-alert"},{l:"RR",v:"34",s:"v-alert"},{l:"BPAP",v:"Indicated",s:"v-alert"}],
+  steps:[
+    {type:"mc",label:"Ventilatory Support",q:"Patient is in severe respiratory distress with crackles throughout all lung fields and pink frothy sputum. What is the preferred non-invasive ventilatory support modality?",
+    opts:["Non-Rebreather Mask (NRB) at 15 Lpm","Continuous Positive Airway Pressure (CPAP) or BiPAP","Bag-Valve-Mask ventilation with high pressure","Simple nasal cannula at 4 Lpm"],
+    correct:1,
+    fb:{c:"Correct. CPAP/BiPAP provides positive end-expiratory pressure (PEEP) which splints open fluid-filled alveoli, reduces preload and afterload, and dramatically improves oxygenation in acute pulmonary edema.",
+    w:"Incorrect. NRB is insufficient for severe pulmonary edema. CPAP/BiPAP is the gold-standard prehospital intervention to recruit alveoli and reduce work of breathing."}},
+    {type:"fr",label:"Pathophysiology of Pulmonary Edema",q:"Explain how left ventricular failure leads to fluid backup into the pulmonary alveoli and describe how CPAP counteracts this process.",
+    keyPoints:["left ventricular failure","increased pulmonary capillary pressure","fluid transudation","alveolar flooding","PEEP","reduces preload and afterload"],
+    gradingNote:"Full credit: LV failure increases left atrial and pulmonary capillary hydrostatic pressure, forcing fluid across the alveolar-capillary membrane into the alveoli (flash pulmonary edema). CPAP provides positive pressure that keeps alveoli open, pushes fluid back into capillaries, and decreases cardiac work."}
+  ]
+},
+
+// ═══ CASE 15: SEPSIS / SEPTIC SHOCK ═══
+{
+  id:15,
+  name:"Septic Shock",
+  subtitle:"Valley View Nursing &bull; Systemic Infection",
+  color:"var(--teal)",
+  dimColor:"var(--teal-dim)",
+  dispatch:"UNIT 7 — Respond to Valley View Nursing, Room 102. 82-year-old female resident with indwelling urinary catheter. Fever, altered mental status, tachypnea, and hypotension. Staff reports acute decline over 24 hours. ETA: 5 min.",
+  vitals:[{l:"HR",v:"126",s:"v-alert"},{l:"BP",v:"84/50",s:"v-alert"},{l:"SpO₂",v:"91%",s:"v-warn"},{l:"RR",v:"28",s:"v-alert"},{l:"Temp",v:"103.2°F",s:"v-alert"}],
+  steps:[
+    {type:"mc",label:"Systemic Inflammatory Response",q:"You suspect severe sepsis progressing to septic shock. Which combination of qSOFA or systemic criteria indicates high risk?",
+    opts:["Bradycardia, hypothermia, and hypertension","Altered mental status, tachypnea (RR >= 22), and hypotension (SBP <= 100)","Leukopenia, normal temperature, and normal BP","Isolated fever without respiratory or hemodynamic changes"],
+    correct:1,
+    fb:{c:"Correct. The qSOFA (quick SOFA) criteria identify patients with suspected infection who are at high risk for poor outcomes: Altered mental status, Tachypnea (RR >= 22), and Hypotension (SBP <= 100).",
+    w:"Incorrect. qSOFA relies on high respiratory rate, altered mental status, and low blood pressure as key warning signs of severe sepsis."}},
+    {type:"fr",label:"Prehospital Sepsis Bundle",q:"Outline the key elements of prehospital sepsis care and explain why early recognition and fluid resuscitation are critical.",
+    keyPoints:["early recognition","oxygenation","IV access","fluid bolus","lactate clearance","vasopressors","prehospital notification"],
+    gradingNote:"Full credit: Early recognition prevents progression to refractory septic shock and multi-organ failure. Management includes oxygen, IV access, cautious crystalloid fluid boluses guided by BP response, blood cultures/lactate awareness, and hospital pre-notification."}
+  ]
+},
+
+// ═══ CASE 16: TRAUMATIC BRAIN INJURY ═══
+{
+  id:16,
+  name:"Traumatic Brain Injury",
+  subtitle:"Highway 95 Overpass &bull; Neurotrauma",
+  color:"var(--rose)",
+  dimColor:"var(--rose-dim)",
+  dispatch:"UNIT 7 — Respond to Highway 95 Overpass. 30-year-old male construction worker fell 15 feet onto concrete. Unresponsive with unequal pupils (Right pupil dilated and sluggish). Decerebrate posturing to painful stimuli. ETA: 5 min.",
+  vitals:[{l:"HR",v:"56",s:"v-alert"},{l:"BP",v:"186/104",s:"v-alert"},{l:"SpO₂",v:"90%",s:"v-warn"},{l:"RR",v:"10",s:"v-alert"},{l:"GCS",v:"6",s:"v-alert"}],
+  steps:[
+    {type:"mc",label:"Cushing's Triad",q:"You observe bradycardia (56), severe hypertension (186/104), and irregular respirations (10). What is this classic constellation of vital signs called and what does it indicate?",
+    opts:["Beck's Triad — Cardiac tamponade","Cushing's Triad — Increased intracranial pressure (ICP) / herniation","Virchow's Triad — Thromboembolism","Cullen's Sign — Intra-abdominal hemorrhage"],
+    correct:1,
+    fb:{c:"Correct. Cushing's Triad consists of hypertension (wide pulse pressure), bradycardia, and irregular respirations. It is a late, ominous sign of significantly elevated intracranial pressure and impending brain herniation.",
+    w:"Incorrect. Cushing's Triad indicates severe intracranial pressure and brainstem compression. Beck's triad is for cardiac tamponade."}},
+    {type:"fr",label:"Cerebral Perfusion Pressure & Ventilation",q:"Define Cerebral Perfusion Pressure (CPP) and explain why both hypoxia and hyperventilation are dangerous in acute TBI management.",
+    keyPoints:["CPP = MAP - ICP","hypoxia causes secondary brain injury","hyperventilation causes cerebral vasoconstriction","ischemia","etCO2 targeting"],
+    gradingNote:"Full credit: CPP = Mean Arterial Pressure minus Intracranial Pressure. Hypoxia causes devastating secondary ischemic brain injury. Hyperventilation lowers PaCO₂, causing cerebral vasoconstriction which reduces cerebral blood flow and worsens ischemia. Target normal EtCO₂ (35–40 mmHg) and maintain SpO₂ >95%."}
+  ]
+},
+
+// ═══ CASE 17: SYMPTOMATIC BRADYCARDIA ═══
+{
+  id:17,
+  name:"Symptomatic Bradycardia",
+  subtitle:"Senior Center &bull; Cardiac Emergency",
+  color:"var(--amber)",
+  dimColor:"var(--amber-dim)",
+  dispatch:"UNIT 7 — Respond to Senior Center. 81-year-old male complaining of dizziness, fatigue, and near-syncope. 3-lead ECG shows sinus bradycardia at 34 beats/min with hypotensive blood pressure. ETA: 5 min.",
+  vitals:[{l:"HR",v:"34",s:"v-alert"},{l:"BP",v:"78/48",s:"v-alert"},{l:"SpO₂",v:"94%",s:"v-ok"},{l:"RR",v:"16",s:"v-ok"},{l:"GCS",v:"14",s:"v-warn"}],
+  steps:[
+    {type:"mc",label:"Unstable Bradycardia Criteria",q:"Patient has a heart rate of 34 and signs of shock (hypotension, altered mentation). According to ACLS guidelines, how is this classified and treated?",
+    opts:["Stable bradycardia — monitor and transport without intervention","Symptomatic unstable bradycardia — prepare for transcutaneous pacing and administer atropine per protocol","Administer beta-blockers to steady rhythm","Perform immediate defibrillation"],
+    correct:1,
+    fb:{c:"Correct. Bradycardia with signs of hemodynamic instability (hypotension, shock, acute heart failure, altered mental status) requires immediate intervention: Atropine IV and preparation for transcutaneous pacing.",
+    w:"Incorrect. Symptomatic unstable bradycardia requires active intervention including atropine and transcutaneous pacing."}},
+    {type:"fr",label:"Transcutaneous Pacing Mechanics",q:"Explain the mechanism of transcutaneous pacing (TCP), how to verify electrical vs mechanical capture, and patient comfort considerations.",
+    keyPoints:["electrical capture vs mechanical capture","check carotid pulse","analgesia/sedation","current output adjustment","pacing pads placement"],
+    gradingNote:"Full credit: TCP delivers electrical current through chest pads to stimulate ventricular depolarization. Verify electrical capture (pacer spikes followed by wide QRS complexes) and mechanical capture (palpating a central pulse matching pacer rate). TCP is painful; administer analgesia/sedation per protocol if patient is responsive."}
+  ]
+},
+
+// ═══ CASE 18: ACUTE ABDOMEN / APPENDICITIS ═══
+{
+  id:18,
+  name:"Acute Abdomen",
+  subtitle:"College Dorm &bull; Surgical Emergency",
+  color:"var(--indigo)",
+  dimColor:"var(--indigo-dim)",
+  dispatch:"UNIT 7 — Respond to University Dormitory. 19-year-old male with 18 hours of periumbilical pain that has now shifted to the right lower quadrant, accompanied by low-grade fever, nausea, and anorexia. ETA: 5 min.",
+  vitals:[{l:"HR",v:"98",s:"v-ok"},{l:"BP",v:"122/78",s:"v-ok"},{l:"SpO₂",v:"99%",s:"v-ok"},{l:"RR",v:"18",s:"v-ok"},{l:"Temp",v:"100.8°F",s:"v-warn"}],
+  steps:[
+    {type:"mc",label:"Abdominal Assessment",q:"During palpation, you note tenderness at McBurney's point and pain upon releasing pressure in the right lower quadrant. What is this sign called?",
+    opts:["Murphy's sign — Cholecystitis","Rebound tenderness (Blumberg's sign) — Peritoneal irritation / Appendicitis","Cullen's sign — Retroperitoneal hemorrhage","Grey Turner's sign — Hemorrhagic pancreatitis"],
+    correct:1,
+    fb:{c:"Correct. Rebound tenderness (Blumberg's sign) is pain upon release of pressure over the right lower quadrant, indicating peritoneal irritation commonly associated with acute appendicitis.",
+    w:"Incorrect. Rebound tenderness indicates peritoneal inflammation. Murphy's sign is specific to acute cholecystitis."}},
+    {type:"fr",label:"Surgical Abdomen Prehospital Care",q:"List the key prehospital priorities for a patient with suspected acute surgical abdomen and explain why oral intake or pain medication withholding is controversial.",
+    keyPoints:["NPO status","gentle transport","position of comfort","pain control debate","surgical consult","monitor vitals for shock"],
+    gradingNote:"Full credit: Priorities include keeping patient NPO (nothing by mouth), providing position of comfort, IV access, monitoring for sepsis or perforation, and rapid transport. While pain medication withholding is historically debated to avoid masking surgical signs, modern practice favors judicious pain management in consultation with medical control."}
+  ]
+},
+
+// ═══ CASE 19: TOXICOLOGY / ORGANOPHOSPHATE ═══
+{
+  id:19,
+  name:"Organophosphate Poisoning",
+  subtitle:"Agricultural Nursery &bull; Hazardous Materials",
+  color:"var(--emerald)",
+  dimColor:"var(--emerald-dim)",
+  dispatch:"UNIT 7 — Respond to Green Valley Nursery. 42-year-old greenhouse worker found unresponsive after spraying pesticides. Excessive salivation, lacrimation, urination, defecation, GI cramping, and emesis (SLUDGE). ETA: 6 min.",
+  vitals:[{l:"HR",v:"48",s:"v-alert"},{l:"BP",v:"100/60",s:"v-warn"},{l:"SpO₂",v:"85%",s:"v-alert"},{l:"RR",v:"30",s:"v-alert"},{l:"Pupils",v:"Pinpoint",s:"v-alert"}],
+  steps:[
+    {type:"mc",label:"SLUDGE/DUMBELS Syndrome",q:"The patient presents with excessive salivation, tearing, urination, diarrhea, and bronchospasm. What is the mechanism of organophosphate toxicity?",
+    opts:["Acetylcholinesterase inhibition leading to acetylcholine excess at receptor sites","Alpha-adrenergic receptor blockade","Direct beta-2 receptor stimulation","GABA receptor antagonism"],
+    correct:0,
+    fb:{c:"Correct. Organophosphates inhibit acetylcholinesterase, preventing the breakdown of acetylcholine. This causes a massive accumulation of acetylcholine, leading to overstimulation of muscarinic and nicotinic receptors (SLUDGE / DUMBELS).",
+    w:"Incorrect. Organophosphates inhibit acetylcholinesterase, causing cholinergic excess."}},
+    {type:"fr",label:"Antidote Administration",q:"Identify the two primary prehospital antidotes for organophosphate poisoning and explain their specific mechanisms of action.",
+    keyPoints:["atropine","competitive muscarinic antagonist","drying secretions","pralidoxime (2-PAM)","cholinesterase reactivator"],
+    gradingNote:"Full credit: Atropine is a competitive muscarinic antagonist that blocks excess acetylcholine at parasympathetic receptor sites, drying secretions and reversing bronchospasm and bradycardia. Pralidoxime (2-PAM) is a cholinesterase reactivator that unbinds the enzyme from the organophosphate molecule."}
+  ]
+},
+
+// ═══ CASE 20: OBSTETRIC EMERGENCY / EHANDLING ═══
+{
+  id:20,
+  name:"Breech Delivery Emergency",
+  subtitle:"Residential Birth &bull; Obstetric Emergency",
+  color:"var(--rose)",
+  dimColor:"var(--rose-dim)",
+  dispatch:"UNIT 7 — Respond to 508 Cedar Lane. 29-year-old female, 38 weeks pregnant, active labor. Family states baby's feet are presenting at the vaginal opening. Immediate delivery imminent. ETA: 4 min.",
+  vitals:[{l:"HR",v:"108",s:"v-warn"},{l:"BP",v:"118/76",s:"v-ok"},{l:"SpO₂",v:"98%",s:"v-ok"},{l:"RR",v:"22",s:"v-warn"},$vitalsEnd||{l:"FHR",v:"130",s:"v-ok"}]},
+  steps:[
+    {type:"mc",label:"Breech Delivery Protocol",q:"During a breech birth, the body delivers up to the umbilicus, but the head stalls. What is the immediate life-saving maneuver required?",
+    opts:["Pull firmly on the infant's torso to extract the head quickly","Insert a gloved hand into the vagina, creating a 'V' around the infant's nose and mouth to keep the airway open and prevent suffocation","Place mother in Trendelenburg position and push the body back in","Administer oxytocin IV push immediately"],
+    correct:1,
+    fb:{c:"Correct. When the head is trapped in a breech delivery, the infant's airway can become occluded against the vaginal wall. Inserting a gloved hand to create a physical airway space (the Mauriceau maneuver or modified Brachting) is critical to prevent asphyxia.",
+    w:"Incorrect. Never pull on a breech infant's body. Creating a manual airway channel with your fingers inside the vagina prevents suffocation while awaiting head delivery."}},
+    {type:"fr",label:"Umbilical Cord Prolapse Management",q:"If you encounter an umbilical cord protruding from the vagina during delivery, what is your immediate intervention and rationale?",
+    opsMissingKey:"none",
+    keyPoints:["knee-chest position","trendelenburg","manual elevation of presenting part","relieve cord compression","prevent fetal hypoxia","rapid transport"],
+    gradingNote:"Full credit: Cord prolapse requires immediate action to relieve pressure on the cord and prevent catastrophic fetal anoxia. Interventions: place mother in knee-chest or Trendelenburg position, use a gloved hand to gently elevate the presenting fetal part off the cord, administer high-flow O₂, and transport immediately with hand in place."}
+  ]
 }
 ];
 
@@ -277,16 +601,17 @@ function renderHome() {
     </header>
     <div class="home-hero">
       <h2>Advanced Clinical <span>Simulations</span></h2>
-      <p>Select a high-acuity scenario to test diagnostic reasoning, advanced scope decisions, and pathophysiology management.</p>
+      <p>Select from all 20 high-acuity scenario drills to test diagnostic reasoning, advanced scope decisions, and pathophysiology management.</p>
       <button class="btn-primary" style="--case-color: var(--blue);" onclick="startRandomCase()">Random Case Drill</button>
     </div>
     <div class="case-grid">
   `;
 
   CASES.forEach((c, idx) => {
+    let caseNumStr = c.id < 10 ? `0${c.id}` : c.id;
     html += `
       <div class="case-tile" style="--tile-accent: ${c.color}; --badge-bg: ${c.dimColor}; --badge-border: ${c.color}; --badge-color: ${c.color};" onclick="startCase(${idx})">
-        <div class="ct-num">Case 0${c.id}</div>
+        <div class="ct-num">Case ${caseNumStr}</div>
         <div class="ct-name">${c.name}</div>
         <div class="ct-meta">${c.subtitle}</div>
         <span class="ct-badge">${c.steps.length} Steps</span>
@@ -319,6 +644,7 @@ function renderStep() {
   const step = currentCase.steps[currentStep];
   const cColor = currentCase.color;
   const cDim = currentCase.dimColor;
+  let caseNumStr = currentCase.id < 10 ? `0${currentCase.id}` : currentCase.id;
 
   let progHtml = `<div class="progress-row">`;
   for(let i=0; i<totalSteps; i++) {
@@ -392,7 +718,7 @@ function renderStep() {
       <div class="logo"></div>
       <div class="header-text">
         <h1>${currentCase.name}</h1>
-        <p>Case 0${currentCase.id} &bull; Step ${currentStep + 1} of ${totalSteps}</p>
+        <p>Case ${caseNumStr} &bull; Step ${currentStep + 1} of ${totalSteps}</p>
       </div>
     </header>
 
