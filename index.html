@@ -138,7 +138,7 @@ const CASES=[
     fb:{c:"Correct. Steering wheel deformity = blunt anterior thoracic force. Your differential must immediately include rib fractures, pneumo/hemothorax, flail chest, pulmonary contusion, and aortic injury. Airbags reduce but do NOT eliminate these injuries. High suspicion drives your entire assessment from this point forward.",
     w:"Incorrect. Steering wheel deformity is a cardinal red flag for blunt thoracic trauma. The differential includes rib fractures, pneumo/hemothorax, flail chest, pulmonary contusion, and aortic injury — ALL of which can be fatal if missed."}},
     {type:"fr",label:"Physical Exam Findings",q:"You auscultate the chest. Breath sounds are ABSENT on the right. Trachea is deviated LEFT. JVD is present. BP is 82/58 and falling. Name the diagnosis, explain the pathophysiology causing each of these three physical findings, and state what will happen if untreated.",
-    keyPoints:["tension pneumothorax","air trapping","mediastinal shift","tracheal deviation away from affected side","JVD from impaired venous return","hypotension from compressed heart","absent breath sounds","fatal without needle decompression","obstructive shock"],
+    keyPoints:["tension pneumothorax","air trapping","mediastinal shift","tracheal deviation away from affected side","JVD from superior vena cava compression preventing venous return to heart","hypotension from compressed heart","absent breath sounds","fatal without needle decompression","obstructive shock"],
     gradingNote:"Full credit requires: correct diagnosis (tension PTX), explanation that trapped air under pressure shifts mediastinum AWAY from affected side (tracheal deviation left = right-sided tension), JVD from superior vena cava compression preventing venous return to heart, hypotension from cardiac compression reducing output. Without decompression = cardiac arrest from obstructive shock."},
     {type:"mc",label:"AEMT Scope — Needle Decompression",q:"Tension pneumothorax is confirmed. At the AEMT level in most jurisdictions, needle thoracostomy (decompression) is:",
     opts:["Within AEMT scope — perform immediately at the 2nd ICS midclavicular line or 4th/5th ICS midaxillary line per protocol","Outside AEMT scope — your role is O₂, rapid transport, and ALS intercept while supporting ABCs","Permitted only if medical direction is physically present on scene","Always performed exclusively by paramedics"],
@@ -557,7 +557,7 @@ const CASES=[
   ]
 },
 
-// ═══ CASE 20: OBSTETRIC EMERGENCY / EHANDLING ═══
+// ═══ CASE 20: OBSTETRIC EMERGENCY / BREECH ═══
 {
   id:20,
   name:"Breech Delivery Emergency",
@@ -565,7 +565,7 @@ const CASES=[
   color:"var(--rose)",
   dimColor:"var(--rose-dim)",
   dispatch:"UNIT 7 — Respond to 508 Cedar Lane. 29-year-old female, 38 weeks pregnant, active labor. Family states baby's feet are presenting at the vaginal opening. Immediate delivery imminent. ETA: 4 min.",
-  vitals:[{l:"HR",v:"108",s:"v-warn"},{l:"BP",v:"118/76",s:"v-ok"},{l:"SpO₂",v:"98%",s:"v-ok"},{l:"RR",v:"22",s:"v-warn"},$vitalsEnd||{l:"FHR",v:"130",s:"v-ok"}]},
+  vitals:[{l:"HR",v:"108",s:"v-warn"},{l:"BP",v:"118/76",s:"v-ok"},{l:"SpO₂",v:"98%",s:"v-ok"},{l:"RR",v:"22",s:"v-warn"},{l:"FHR",v:"130",s:"v-ok"}],
   steps:[
     {type:"mc",label:"Breech Delivery Protocol",q:"During a breech birth, the body delivers up to the umbilicus, but the head stalls. What is the immediate life-saving maneuver required?",
     opts:["Pull firmly on the infant's torso to extract the head quickly","Insert a gloved hand into the vagina, creating a 'V' around the infant's nose and mouth to keep the airway open and prevent suffocation","Place mother in Trendelenburg position and push the body back in","Administer oxytocin IV push immediately"],
@@ -573,9 +573,8 @@ const CASES=[
     fb:{c:"Correct. When the head is trapped in a breech delivery, the infant's airway can become occluded against the vaginal wall. Inserting a gloved hand to create a physical airway space (the Mauriceau maneuver or modified Brachting) is critical to prevent asphyxia.",
     w:"Incorrect. Never pull on a breech infant's body. Creating a manual airway channel with your fingers inside the vagina prevents suffocation while awaiting head delivery."}},
     {type:"fr",label:"Umbilical Cord Prolapse Management",q:"If you encounter an umbilical cord protruding from the vagina during delivery, what is your immediate intervention and rationale?",
-    opsMissingKey:"none",
     keyPoints:["knee-chest position","trendelenburg","manual elevation of presenting part","relieve cord compression","prevent fetal hypoxia","rapid transport"],
-    gradingNote:"Full credit: Cord prolapse requires immediate action to relieve pressure on the cord and prevent catastrophic fetal anoxia. Interventions: place mother in knee-chest or Trendelenburg position, use a gloved hand to gently elevate the presenting fetal part off the cord, administer high-flow O₂, and transport immediately with hand in place."}
+    gradingNote:"Full credit: Cord prolapse requires immediate action to relieve pressure on the cord and prevent catastrophic fetal anoxia. Interventions: place mother in knee-chest or Trendelenburg position, use a gloved hand to gently elevate the presenting fetal file or part off the cord, administer high-flow O₂, and transport immediately with hand in place."}
   ]
 }
 ];
